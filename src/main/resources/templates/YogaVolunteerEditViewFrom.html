@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<title>YOGA VOLUNTEER EDIT & VIEW PAGE</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+<script type="text/javascript">
+
+</script>
+
+<body>
+	<div>
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/volunteerlist"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="card-body">
+				<table style="color: blue;">
+					<tr align="center">
+						<td width="910px" align="center"> <H4><b><font size="6" color="green">YOGA VOLUNTEER VIEW & EDIT PROFILE</font></b></h4> </td>
+						<td>
+								<input type="image" id='button' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" name="submit" width="120" height="100" alt="submit"/>
+						</td>
+					</tr>
+				</table>
+				<br>
+				
+				<!-- Form submission start -->
+				<form th:action="@{/trust/editviewyogavlounterOperation}" method="POST" enctype="multipart/form-data">
+				<!-- <img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.yimagedata)}" /> -->
+				<input type="hidden" th:field="${edit.vid}"/>
+				 
+				<table border="1">
+					<tr>
+						<td> 
+							<table>
+								<tr>
+									<!-- <td><b><font size="4" color="Black"> IN DATE:		</font></b><input type="text" value="06-Oct-2022 01:58 PM"/></td>
+									<td><b><font size="4" color="Black"> OUT DATE:		</font></b><input type="text" value="10-Oct-2022 01:58 PM"/></td> -->
+									
+									<td><b><font size="4" color="Black"> IN DATE:		</font></b><input type="datetime-local" th:field="${edit.vindate}" /></td>
+									<td><b><font size="4" color="Black"> OUT DATE:		</font></b><input type="datetime-local" th:field="${edit.voutdate}" /></td> 
+								</tr>
+							</table>
+							<br>
+							<table>		
+								<tr>
+									<td><b><font size="4" color="Black">VOLUNTEER ID NUMBER:		</font></b></td>	<td><input type="text" th:field="${edit.vidcard}" class="form-control" readonly="readonly" /></td>
+									<td><b><font size="4" color="Black">BATCH:				</font></b></td>	<td><input type="text" th:field="${edit.vbatch}" class="form-control" readonly="readonly" /></td>
+									<!-- <td><b><font size="4" color="Black">BATCH:				</font></b></td>	<td><select th:field="${edit.ybatch}" class="form-control" readonly="readonly">
+																														<option value="11">11</option>
+																														<option value="10">10</option>
+																														<option value="9">9</option>
+																														<option value="8">8</option>
+																														<option value="7">7</option> 
+																														<option value="6">6</option>
+																														<option value="5">5</option>
+																														<option value="4">4</option>
+																														<option value="3">3</option>
+																														<option value="2">2</option>
+																														<option value="1">1</option>
+																												</select></td> -->
+								</tr>
+							</table>
+							<table>
+								<tr><td><b><font size="4" color="Black">FULL NAME:			</font></b></td>	<td width="600px"><input type="text" th:field="${edit.vfullname}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">FATHER/HUSBAND NAME:</font></b></td>	<td><input type="text" th:field="${edit.vfatherhusbandname}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">AGE:				</font></b></td>	<td><input type="text" th:field="${edit.vage}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">GENDER:				</font></b></td>	<td><input type="radio" th:field="${edit.vgender}" value="MALE" /> MALE <input type="radio" name="ygender" value="FEMALE" /> FEMALE </td><tr>
+								<tr><td><b><font size="4" color="Black">MARITUAL STATUS:	</font></b></td>	<td><select th:field="${edit.vmaritualstatus}" class="form-control" > <option value="">-SELECT-</option> <option value="Married">Married</option> <option value="Unmarried">Unmarried</option> </select></td></tr>
+								<!-- <tr><td><b><font size="4" color="Black">BLOOD GROUP:		</font></b>	</td>	<td><select th:field="${edit.ybloodgroup}" class="form-control" > <option value="">-SELECT-</option>  <option value="A Positive">(A+ve)</option> <option value="A Negative">(A-ve)</option> <option value="B Positive">(B+ve)</option> <option value="B Negative">(B-ve)</option> <option value="O Positive">(O+ve)</option> <option value="O Negative">(O-ve)</option> <option value="AB Positive">(AB+ve)</option> <option value="AB Negative">(AB-ve)</option><option value="None">None</option></select> -->
+								<tr><td><b><font size="4" color="Black">OCCUPATION:			</font></b></td>	<td><input type="text" th:field="${edit.voccupation}" class="form-control"  /></td></tr>
+								<!-- <tr><td><b><font size="4" color="Black">OCCUPATION:			</font></b></td>	<td><select th:field="${edit.yoccupation}" class="form-control" > <option value="">-SELECT-</option>
+																													<option value="Agriculture">Agriculture</option> <option value="3D Works">3D Works</option> <option value="Accounts">Accounts</option> <option value="Advocate">Advocate</option> <option value="Agarbatti making">Agarbatti making</option> <option value="Agriculture shop">Agriculture shop</option> <option value="Auto Driver">Auto Driver</option> <option value="Auto mobile shop">Auto mobile shop</option> <option value="Bakery works">Bakery works</option> <option value="Banks work">Banks work</option>
+																													<option value="Bed makers">Bed makers</option> <option value="Bike Mechanic">Bike Mechanic</option> <option value="Book store">Book store</option> <option value="Bus Driver">Bus Driver</option> <option value="Business works">Business works</option> <option value="Car Decors Works">Car Decors Works</option> <option value="Car Driver">Car Driver</option> <option value="Car Mechanic">Car Mechanic</option> <option value="Carpenter">Carpenter</option>
+																													<option value="Cccamera works">Camera works</option> <option value="Cement sales">Cement sales</option> <option value="Centring mestri">Centring mestri</option> <option value="Chart bhandar">Chart bhandar</option> <option value="Charter accounts">Charter accounts</option> <option value="Civil engineers">Civil engineers</option> <option value="ClothShop Work">ClothShop Work</option> <option value="Company">Company</option> <option value="Computer and laptop repair">Computer and Laptop repair</option> <option value="Conductor">Conductor</option>
+																													<option value="Cook">Cook</option> <option value="Dholak player">Dholak player</option> <option value="Doctor">Doctor</option> <option value="Electrical Technician">Electrical Technician</option> <option value="Farmer">Farmer</option> <option value="Fastfood center">Fastfood center</option> <option value="Financial analyst">Financial analyst</option> <option value="Flower sales">Flower sales</option> <option value="Foot wear">Foot wear</option>
+																													<option value="Fruits sales">Fruits sales</option> <option value="Furniture">Furniture</option> <option value="GOvernment Employee">GOvernment Employee</option> <option value="General store">General store</option> <option value="Goldsmith">Goldsmith</option> <option value="Government Teacher">Government Teacher</option> <option value="Hair saloon">Hair saloon</option> <option value="Hardware shop">Hardware shop</option> <option value="House wife">House wife</option> <option value="Housekeeper">Housekeeper</option>
+																													<option value="Juice center">Juice center</option> <option value="Kiranshop Work">Kiranshop Work</option> <option value="Labour Work">Labour Work</option> <option value="Lawyer">Lawyer</option> <option value="Leaders">Leaders</option> <option value="Lorry Driver">Lorry Driver</option> <option value="Media Press">Media Press</option> <option value="Medical store">Medical store</option> <option value="Mobile sales and repair">Mobile sales and repair</option>
+																													<option value="Music Keyboard Player">Music Keyboard Player</option> <option value="Music director">Music director</option> <option value="Nurse">Nurse</option> <option value="Optical">Optical</option> <option value="Painting works">Painting works</option> <option value="Petrol working">Petrol working</option> <option value="Photo Studio">Photo Studio</option> <option value="Photo frame shop">Photo frame shop</option> <option value="Photographay">Photographay</option> <option value="Photos frame makers">Photos frame makers</option>
+																													<option value="Plumber Technician">Plumber Technician</option> <option value="Police officers">Police officers</option> <option value="Politician">Politician</option> <option value="Post man">Post man</option> <option value="Printing Press">Printing Press</option> <option value="Private Employee">Private Employee</option> <option value="Private Teacher">Private Teacher</option> <option value="Rto">Rto</option> <option value="Singer">Singer</option> <option value="Software Engineering">Software Engineering</option> <option value="Software developers">Software developers</option>
+																													<option value="Sound system operating">Sound system operating</option> <option value="Student ">Student</option> <option value="Tabala player">Tabala player</option> <option value="Tailor">Tailor</option> <option value="Temple poojari">Temple poojari</option> <option value="Tiffin Center">Tiffin Center</option> <option value="Tiles works">Tiles works</option> <option value="Tractor Driver">Tractor Driver</option> <option value="Transport work">Transport work</option> <option value="Vegetable sales">Vegetable sales</option> <option value="Videographay">Videographay</option> <option value="Watch man duty">Watch man duty</option>
+																													<option value="Welding Work">Welding Work</option> <option value="Wine shop working">Wine shop working</option> <option value="Writer">Writer</option> <option value="Lab technician">Lab technician</option>
+																													</select></td></tr> -->
+								<!-- <tr><td><b><font size="4" color="Black">PRESENT ADDRESS:	</font></b></td>	<td><textarea th:field="${edit.ypresentaddress}" class="form-control"  /></textarea></td></tr> -->
+								
+								<!-- <tr><td><b><font size="4" color="Black">DISEASE:			</font></b></td>	<td><input type="text" th:field="${edit.ydisease}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">AADHAR NUMBER:		</font></b></td>	<td><input type="text" th:field="${edit.yaadharnumber}" class="form-control"  /></td></tr> -->
+								<tr><td><b><font size="4" color="Black">FULL ADDRESS:	</font></b></td>	<td><textarea th:field="${edit.vpermanentaddress}" class="form-control"  /></textarea></td></tr>
+							</table><br>
+							<table>		
+								<tr><td><b><font size="4" color="Black">MOBILE NUMBER:		</font></b></td>	<td><input type="text" th:field="${edit.vmobilenumber}" class="form-control"  /></td>
+									<td><b><font size="4" color="Black">EMERGENCY NO:		</font></b>	</td>	<td><input type="text" th:field="${edit.vemergencvno}" class="form-control"  /></td>
+								</tr>
+							</table>
+							<!-- <table>
+								<tr>
+									<td><b><font size="4" color="Black">WEIGHT:				</font></b></td>	<td><input type="text" th:field="${edit.yweight}" class="form-control"  /></td>
+									<td><b><font size="4" color="Black">BP:					</font></b></td>	<td><input type="text" th:field="${edit.ybp}" class="form-control"  /></td>
+									<td><b><font size="4" color="Black">PULSE RATE:			</font></b></td>	<td><input type="text" th:field="${edit.ypulserate}" class="form-control"  /></td>
+									<td><b><font size="4" color="Black">SUGAR:				</font></b></td>	<td><select th:field="${edit.ysugar}" class="form-control"> <option value="">-SELECT-</option> <option value="Yes">Yes</option> <option value="No">No</option> </select></td>
+								</tr>
+							</table>  -->
+							
+						</td>
+						<td width="20"></td>
+							<td> <img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.vimagedata)}" id="output" width="450px" height="800px"/> 
+						</td> 
+						
+					</tr>
+					<tr>
+						<td><div class="cal-3"><input type="submit" value="UPDATE YOGA VOLUNTEER FORM" class="btn btn-success" /></div></td>
+						<td width="20"></td>
+						<td><b><font size="5" color="green">Take Photo </font></b><input name="imageFile" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></td>
+					</tr>
+					<tr>
+						<td>
+								<div><font size="6" color="green"><span th:text="${msg}" style='color: green'></span></font></div>
+								<div class="name"><font size="1" color="white"> <span th:text="${edit.vfullname}" style='color: white'></span></font></div>
+								<div class="id"><font size="1" color="white"> <span th:text="${edit.vid}" style='color: white'></span></font></div>
+						</td>
+					</tr>		
+				</table>
+				
+				</form>
+				<!-- Form submission start -->	
+				<!-- <hr>
+				<b>SELF DECLARATION :-</b>
+					<p>I/We Hereby Declare that I/We shall strictly allow all Ashrama rules of Sri Basavalinga Avadhoota Ashram and The ashrama is conducting yoga shibira are so 
+				I/We are participating in the yoga voluntary, so any risk for health concern or else any short things happen I/We responsible for the same for which ashrama will 
+				not responsible for any type of loss harm theft abnormality missing emergencies etc. I are aware that there is no emergency service available at Sri basavalinga avadhoota 
+				ashram and we are staying here on our own risk and the Sri basavalinga avadhoota ashrama will not be responsible for the above.</p>
+				<br>
+				<br>
+				<table>
+					<tr>
+						<td width="700px"> ATTENDEE SIGN:</td>
+						<td width="800px"> GUARDIAN SIGN:</td>
+						<td width="800px"> INCHARGE SIGN:</td>
+					</tr>
+				</table> -->
+				
+			</div>
+
+			<div class="card bg-secondary text-white">
+
+			<table id="records_table24">
+					<tr>
+						<td width="700px" style="font-size:18px;"> Contact : <b>+91-63 0529 0187</b></td>
+						<td width="650px" style="font-size:18px;"> 	Email : <b>mallayyagiri121@gmail.com</b></td>
+						<td width="950px" style="font-size:18px;">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+	
+</body>
+<script type="text/javascript">
+ (function clickMe() {
+  const button = document.getElementById("button");
+ 	var name = $('.name').text();
+ 	var id = $('.id').text();
+  var link = "https://springboot-trust-app.herokuapp.com/trust/viewyoga?yid="+id;
+  button.addEventListener("click", event => {
+    window.open("https://api.whatsapp.com/send?phone=7032358432&text=(YOGA PROFILE) Name: " +name+" , Click Link for More.. "+link)
+  });
+})();
+</script>
+</html>

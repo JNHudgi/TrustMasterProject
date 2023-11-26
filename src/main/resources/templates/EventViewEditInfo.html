@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<!-- <meta name="viewport" content="width=device-width, minimum-scale=0.1"> -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Event Profile Info</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+
+
+<table>
+		<tr height="950">
+			<td>
+				<div class="card bg-secondary text-white" align="center">
+					
+					<!-- Header -->
+					<div>
+						<table>
+							<tr>
+								<td width="20px"></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo3.png" height="160" width="170"></td>
+								<td align="center"><H3> <b><a href="/trust/eventlist"><font size="7" color="pink">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM, MALLAYYAGIRI</font></a></b></h3></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo1.png" height="160" width="180"></td>
+								<td width="20px"></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+					
+					<!--Body  -->
+					<div>
+						<table>
+							<tr>
+								
+								<td> <a href="/trust/eventlist"> <img alt="No Internet" src="../static/assets/images/appajimages/back.png" width="100px" height="100px"></a></td>
+								<td width="300"/>
+								<td><b><font size="6" color="yellow"><u>WELCOME TO EVENT PROFILE</u></font></b></td>
+								<td width="200"/>
+								<td>
+									<div th:if="${msg!=null}">
+										<img alt="No Internet" src="../static/assets/images/appajimages/success.png" width="110px" height="110px">
+									</div>
+								</td>
+							</tr>
+						</table>
+						
+					<form th:action="@{/trust/eventvieweditoperation}" method="POST" enctype="multipart/form-data">
+					<input type="hidden" th:field="${edit.eid}"/>
+				
+					<table>
+						<tr>
+							<td>
+								<table>
+								
+								<tr><td><b><font size="4" color="Black">EVENT DATE			</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.edatetime}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">EVENT NAME:		    </font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.ename}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">EVENT VENEU:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.evenue}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">PERSON NAME:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.epersonnames}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">MOBILE NUMBER:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.epersonmobiles}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">OCCUPATION:			</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.eoccupation}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">FULL ADDRESS:		</font></b></td>	<td><textarea style="font-weight: bold" th:field="${edit.epersonaddress}" class="form-control" /></td></tr>
+								
+									
+								</table>	
+							</td>
+							<td width="20"></td>
+							<td>	
+								<div th:if="${imgUtil!=null}">
+									<img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.epersonsimagedata)}" id="output" width="500px" height="550px">  
+								</div> 
+								<div th:unless="${imgUtil!=null}">
+									<img id="output" src=""  width="450px" height="550px"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="UPDATE EVENT PROGRAM" class="btn btn-success" /></td>
+							<td width="20"></td>
+							<td><b><font size="5" color="yellow">Take Photo </font></b><input name="imageFile" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></td>
+						</tr>
+					</table>
+					</form>
+
+						
+					</div>
+					<!-- End -->
+					
+					<!-- footer -->
+					<div>
+						<table>
+							<tr align="center">
+								<td><font size="5" color="Yellow">Cell : <b><u> +916305290187 </b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Email Id : <u><b>mallayyagiri121@gmail.com</b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Address : <u><b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></u></font></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+
+
+<!-- <div>
+	<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/eventlist"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+			</div>
+	
+			<div class="card-body">
+			
+				<table style="color: blue;">
+					<tr>
+						<td width="910px" align="center"> <H4><b><font size="6" color="green">EVENT yes INFORMATION</font></b></h4> </td>
+					</tr>
+				</table>
+				<br>
+				
+				Form submission start
+				<form th:action="@{/trust/eventvieweditoperation}" method="POST" enctype="multipart/form-data">
+					<input type="hidden" th:field="${edit.eid}"/>
+				
+				<table>
+				<tr>
+					<td>
+						<table>
+								<tr><td><b><font size="4" color="Black">EVENT DATE			</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.edatetime}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">EVENT NAME:		    </font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.ename}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">EVENT VENEU:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.evenue}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">PERSON NAME:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.epersonnames}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">MOBILE NUMBER:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.epersonmobiles}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">OCCUPATION:			</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.eoccupation}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">FULL ADDRESS:		</font></b></td>	<td><input type="text" style="font-weight: bold" th:field="${edit.epersonaddress}" class="form-control" /></td></tr>
+						</table>	
+							
+					</td>
+					<td width="20"></td>
+					<td>	
+						<div th:if="${imgUtil!=null}">
+							<img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.epersonsimagedata)}" id="output" width="550px" height="550px">  
+						</div> 
+						<div th:unless="${imgUtil!=null}">
+							<img id="output" src=""  width="450px" height="550px"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+						<td><div class="cal-3"><input type="submit" value="UPDATE GURU MALA" class="btn btn-success" /></div></td>
+						<td width="20"></td>
+						<td><b><font size="5" color="green">Take Photo </font></b><input name="imageFile" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></td>
+				</tr>
+				<tr>
+						<td>
+							<div><b><font size="6" color="green"><span th:text="${msg}" style='color: green'></span></font></b></div>
+						</td>
+					</tr>	
+				
+				</table>
+				</form>
+		</div>
+		<div class="card bg-secondary text-white">	
+				<table>
+					<tr height="100" align="center">
+						<td width="220"><b><font size="5" color="white">+91-63 0529 0187</font></b></td>
+						<td width="200"><b><font size="5" color="white">mallayyagiri121@gmail.com</font></b></td>
+						<td><b><font size="5" color="white">C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</font></b></td>
+					</tr>
+				</table>
+			</div>
+	</div>
+</div> -->
+	
+</body>
+</html>

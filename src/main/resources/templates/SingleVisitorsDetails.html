@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<!-- <meta name="viewport" content="width=device-width, minimum-scale=0.1"> -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Visitor Information</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+<script type="text/javascript">
+/* 	$(document).ready(function() {
+		$.ajax({
+			url : 'getimagefilename',
+			success : function(resTxt) {
+				view = resTxt
+				
+				
+				var fileData = 'data:image/jpeg;base64,' + view.vimagedata;
+				$("#imgdata").attr('src', fileData)
+				
+ */
+				
+				/* var vaadharimageData = 'data:image/jpeg;base64,' + view.vaadharimage;
+				$("#vaadharimage").attr('src', vaadharimageData) */
+				
+			/* 	$("#vfname").text(view.vfname);
+				$("#vfatherhusbandname").text(view.vfatherhusbandname);
+				$("#vgender").text(view.vgender);
+				$("#vphonenumber").text(view.vphonenumber);
+				$("#valternetnumber").text(view.valternetnumber);
+				$("#vaadher").text(view.vaadher);
+				$("#vpannumber").text(view.vpannumber);
+				
+				$("#voccupation").text(view.voccupation);
+				$("#vvistedDateTime").text(view.vvistedDateTime);
+				$("#vvisitpurpose").text(view.vvisitpurpose);
+				$("#vtime").text(view.vtime);
+				$("#vremark").text(view.vremark);
+				
+				$("#vdistcity").text(view.vdistcity);
+				$("#vstate").text(view.vstate);
+				$("#vlocality").text(view.vlocality);
+				
+				
+			}
+		});
+
+	}); */
+</script>
+<body>
+<div>
+	<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/allvisitordetails"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+			</div>
+	
+			<div class="card-body">
+			
+				<table style="color: blue;">
+					<tr>
+						<!-- <td> <img id="output" src="" height="160" width="160"></td> -->
+						<td width="910px" align="center"> <H4><b><font size="6" color="green">VISITOR INFORMATION</font></b></h4> </td>
+						<!-- <td> <img id="output" src="" height="160" width="160"></td> -->
+					</tr>
+				</table>
+				<br>
+				
+				<table>
+				<tr>
+					<td>
+						<table>
+								<tr><td><b><font size="4" color="Black">FULL NAME:			</font></b></td>	<td><b><span th:text="${edit.vfname}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">FATHER/HUSBAND NAME:</font></b>	</td>	<td><b><span th:text="${edit.vfatherhusbandname}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">GENDER:				</font></b></td>	<td><b><span th:text="${edit.vgender}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">MOBILE NUMBER:		</font></b></td>	<td><b><span th:text="${edit.vphonenumber}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">ALTERNET NUMBER:	</font></b></td>	<td><b><span th:text="${edit.valternetnumber}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">OCCUPATION:			</font></b></td>	<td><b><span th:text="${edit.voccupation}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">VISIT PURPOSE:		</font></b></td>	<td><b><span th:text="${edit.vvisitpurpose}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">VISIT DATE, TIME:	</font></b></td>	<td><b><span th:text="${edit.vvistedDateTime}" class="form-control" ></span></b></td></tr> 
+								<tr><td><b><font size="4" color="Black">YEAR OF VISITING ASHRAM:</font></b></td><td><b><span th:text="${edit.vremark}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">CITY/VILLAGE:		</font></b></td>	<td><b><span th:text="${edit.vlocality}" class="form-control" ></span></b></td></tr> 
+								<tr><td><b><font size="4" color="Black">DIST/CITY:			</font></b></td>	<td><b><span th:text="${edit.vdistcity}" class="form-control" ></span></b></td></tr>
+								<tr><td><b><font size="4" color="Black">STATE:				</font></b></td>	<td><b><span th:text="${edit.vstate}" class="form-control" ></span></b></td></tr>
+						</table>	
+							
+					</td>
+					<td width="20"></td>
+					<td> <img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.vimagedata)}" width="470px"/> 
+				</tr>
+				
+				</table>
+		</div>
+		<div class="card bg-secondary text-white">	
+				<table>
+					<tr height="100" align="center">
+						<td width="220"><b><font size="5" color="white">+91-63 0529 0187</font></b></td>
+						<td width="200"><b><font size="5" color="white">mallayyagiri121@gmail.com</font></b></td>
+						<td><b><font size="5" color="white">C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</font></b></td>
+					</tr>
+				</table>
+			</div>
+</div>
+</div>
+	
+</body>
+</html>

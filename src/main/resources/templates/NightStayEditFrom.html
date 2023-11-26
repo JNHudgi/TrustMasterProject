@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Night Stay Edit Form</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+
+<table>
+		<tr height="950">
+			<td>
+				<div class="card bg-secondary text-white" align="center">
+					
+					<!-- Header -->
+					<div>
+						<table>
+							<tr>
+								<td width="20px"></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo3.png" height="160" width="170"></td>
+								<td align="center"><H3> <b><a href="/trust/nightstaylist"><font size="7" color="pink">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM, MALLAYYAGIRI</font></a></b></h3></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo1.png" height="160" width="180"></td>
+								<td width="20px"></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+					
+					<!--Body  -->
+					<div>
+						<table>
+							<tr>
+								
+								<td> <a href="/trust/nightstaylist"> <img alt="No Internet" src="../static/assets/images/appajimages/back.png" width="100px" height="100px"></a></td>
+								<td width="300"/>
+								<td><b><font size="6" color="yellow"><u>WELCOME TO NIGHT-STAY PROFILE</u></font></b></td>
+								<td width="200"/>
+								<td>
+									<div th:if="${msg!=null}">
+										<img alt="No Internet" src="../static/assets/images/appajimages/success.png" width="110px" height="110px">
+									</div>
+								</td>
+							</tr>
+						</table>
+						
+					<form th:action="@{/trust/editnightstayOpe}" method="POST" enctype="multipart/form-data">
+					<input type="hidden" th:field="${edit.nsid}"/>
+				
+					<table>
+						<tr>
+							<td>
+								<table>
+								
+								<tr><td><b><font size="4" color="Black"> IN DATE:		</font></b></td>	<td width="600px"><input type="text" th:field="${edit.nsindate}" /></td></tr>
+								<tr><td><b><font size="4" color="Black"> OUT DATE:		</font></b></td>	<td><input type="text" th:field="${edit.nsoutdate}" /> </td></tr>
+								<tr><td><b><font size="4" color="Black">FULL NAME:		</font></b></td>	<td><input type="text" th:field="${edit.nsfullname}" id="nsfullname" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">FAMILY NAMES:	</font></b></td>	<td><input type="text" th:field="${edit.nsfamilynames}" class="form-control" /></td></tr>
+								<tr><td><b><font size="4" color="Black">NUMBER OF DAYS:	</font></b></td>	<td><input type="text" th:field="${edit.nsdays}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">MOBILE NUMBER:	</font></b></td>	<td><input type="text" th:field="${edit.nsmobilenumber}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">EMERGENCY NO:	</font></b></td>	<td><input type="text" th:field="${edit.nsalternetnumber}" class="form-control"  /></td></tr>
+								<tr><td><b><font size="4" color="Black">FULL ADDRESS:	</font></b></td>	<td><textarea  th:field="${edit.nsfulladdress}" class="form-control"  /></textarea></td></tr>
+							
+								</table>	
+							</td>
+							<td width="20"></td>
+							<td>	
+								<div th:if="${imgUtil!=null}">
+									<img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(edit.nsfamilyimagedata)}" id="output" width="500px" height="550px">  
+								</div> 
+								<div th:unless="${imgUtil!=null}">
+									<img id="output" src=""  width="450px" height="550px"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="UPDATE NIGHT-STAY" class="btn btn-success" /></td>
+							<td width="20"></td>
+							<td><b><font size="5" color="yellow">Take Photo </font></b><input name="imageFile" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></td>
+						</tr>
+					</table>
+					</form>
+
+						
+					</div>
+					<!-- End -->
+					
+					<!-- footer -->
+					<div>
+						<table>
+							<tr align="center">
+								<td><font size="5" color="Yellow">Cell : <b><u> +916305290187 </b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Email Id : <u><b>mallayyagiri121@gmail.com</b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Address : <u><b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></u></font></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <div class="container">
+		<div class="card">
+
+
+			<div class="card-body">
+			
+				<table style="color: green;">
+					<tr>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="150" width="130"></td>
+						<td width="800px" align="center"><H3><b><a href="/trust/nightstay">SRI BASAVALINGA AVADHOOTA ASHRAM, VLG:DEGALMADI, T:CHINCHOLLI, D:GULBARGA</a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="150" width="130"></td>
+					</tr>
+				</table>
+			<br>
+			
+				<table style="color: blue;">
+					<tr>
+						<td width="140px"></td>
+						<td width="792px" align="center"><H4><b>APPLICATION FOR NIGHT STAY</b></h4></td>
+						<td> <img id="output" src="" height="150" width="130"></td>
+					</tr>
+				</table>
+				<br>
+				
+				Form submission start
+				<form th:action="@{/trust/editnightstayOpe}" method="POST" enctype="multipart/form-data">
+				<table>
+				 	<tr>
+				 		<td width="600px">
+							<table>		
+								<tr><td width="300px">NIGHT SATY ID NUMBER:	</td>	<td width="500px">	<input type="text" th:field="${edit.nsidcard}" class="form-control" /></td></tr> 
+								<tr><td>FULL NAME:							</td>	<td>				<input type="text" th:field="${edit.nsfullname}" class="form-control"  /></td></tr>
+								<tr><td>FAMILY NAMES:						</td>	<td>				<input type="text" th:field="${edit.nsfamilynames}" class="form-control"  /></td></tr>
+								<tr><td>AADHAR NUMBER:						</td>	<td>				<input type="text" th:field="${edit.nsaadharnumber}" class="form-control"  /></td></tr>
+								<tr><td>MOBILE NUMBER:						</td>	<td>				<input type="text" th:field="${edit.nsmobilenumber}" class="form-control"  /></td></tr>
+								<tr><td>ALTERNET NUMBER:					</td>	<td>				<input type="text" th:field="${edit.nsalternetnumber}" class="form-control"  /></td></tr>
+								<tr><td>IN DATE:							</td>	<td>				<input type="date" th:field="${edit.nsindate}" class="form-control"  /></td></tr>
+								<tr><td>OUT DATE:							</td>	<td>				<input type="date" th:field="${edit.nsoutdate}" class="form-control"  /></td></tr>
+								<tr><td>NUMBER OF DAYS:						</td>	<td>				<input type="text" th:field="${edit.nsdays}" class="form-control"  /></td></tr>
+								<tr><td>FULL ADDRESS:						</td>	<td>				<textarea th:field="${edit.nsfulladdress}" class="form-control"  /></textarea></td></tr>
+								<tr><td><input type="hidden" th:field="${edit.nsid}" class="form-control"  /></td></tr>
+							</table>			 	
+				 		</td>
+				 		<td width="400px">
+				 			<table>		
+								<tr align="center"> 
+									<td> FAMILY PICTURE:  <img id="familypic" src="" height="170" width="260"></td>
+								</tr>
+								<tr align="right">
+									<td><input name="familyImage" type="file" accept="image/*" onchange="document.getElementById('familypic').src = window.URL.createObjectURL(this.files[0])"></td>
+								</tr>
+								<tr align="center"> 
+								 	<td><hr> AADHAR PICTURE:	<img id="aadharpic" src="" height="170" width="260"></td>
+								</tr>
+								<tr align="right">
+									<td> <input name="aadharImage" type="file" accept="image/*" onchange="document.getElementById('aadharpic').src = window.URL.createObjectURL(this.files[0])"></td>
+								</tr>
+							</table>
+				 		</td>
+				 	</tr>
+				 </table>
+				 
+				<div class="row">
+					<div class="cal-3"><input type="submit" value="UPDATE NIGHT STAY" class="btn btn-success" /></div>
+					<div class="col-6"><b><span th:text="${msg}" style='color: green'></span></b></div>
+					<div class="col-2"> <h5> <a href="/trust/yoga">Home Page</a> </h5></div>
+				</div>
+	</form>
+			<div class="card bg-secondary text-white">
+
+			<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+			</div>
+
+		</div>
+	</div>
+</div> -->
+	
+</body>
+</html>

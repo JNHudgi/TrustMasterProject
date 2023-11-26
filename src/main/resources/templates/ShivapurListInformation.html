@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Shivapur List</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>SHIVAPUR SEARCH INFORMATION ..!</h3>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-3">	<h5><span th:text="${name}"></span></h5></div>
+					<div class="col-2">	<h5><a href="/trust/adminfunction">HOME PAGE</a></h5></div>
+					<div class="col-2">	<h5><a href="/logout">LOGOUT</a></h5></div>
+				</div>
+				<table border="1">
+						<tr class="bg-info text-white"> 
+							<th width="200px">FULL NAME</th>		<th width="200px">PERSON MOBILE</th>	<th width="200px">PERSON AADHAR</th>	<th width="200px">PROFILE CODE</th>
+							<th width="200px">LINK</th>				
+						</tr>
+						<tr th:each="ob:${ylist}">
+							<td width="200px" th:text="${ob[1]}"></td>	<td width="200px" th:text="${ob[2]}"></td>
+							<td width="200px" th:text="${ob[3]}"></td>	<td width="200px"th:text="${ob[4]}"></td>
+							<td width="200px"><a th:href="@{/trust/yogaparticipentprofilelink(yid=${ob[0]})}"><b>VIEW</b></a> | <a th:href="@{/trust/deleteyoga(yid=${ob[0]})}"><b>DELETE</b></a></td>
+						</tr>
+						<tr th:each="ob:${nslist}">
+							<td width="200px" th:text="${ob[1]}"></td>	<td width="200px" th:text="${ob[2]}"></td>
+							<td width="200px" th:text="${ob[3]}"></td>	<td width="200px"th:text="${ob[4]}"></td>
+							<td width="200px"><a th:href="@{/trust/nightstayview(nsid=${ob[0]})}"><b>VIEW</b></a> | <a th:href="@{/trust/nightstaydelete(nsid=${ob[0]})}"><b>DELETE</b></a></td>
+						</tr>
+						<tr th:each="ob:${elist}">
+							<td width="200px" th:text="${ob[1]}"></td>	<td width="200px" th:text="${ob[2]}"></td>
+							<td width="200px" th:text="${ob[3]}"></td>	<td width="200px"th:text="${ob[4]}"></td>
+							<td width="200px"><a th:href="@{/trust/eventview(eid=${ob[0]})}"><b>VIEW</b></a> | <a th:href="@{/trust/eventdelete(eid=${ob[0]})}"><b>DELETE</b></a></td>
+						</tr>
+						
+						<tr th:each="ob:${vlist}">
+							<td width="200px" th:text="${ob[1]}"></td>	<td width="200px" th:text="${ob[2]}"></td>
+							<td width="200px" th:text="${ob[3]}"></td>	<td width="200px"th:text="${ob[4]}"></td>
+							<td width="200px"><a th:href="@{/trust/viewvisitor(vid=${ob[0]})}"><b>VIEW</b></a> | <a th:href="@{/trust/deletvisitor(vid=${ob[0]})}"><b>DELETE</b></a></td>
+						</tr>
+				</table>			
+			</div>
+		</div>
+		<div class="card bg-secondary text-white">
+			<div class="row">
+				<div class="col-4">	Contact : <b>+91-70 3235 8432</b> </div>
+				<div class="col-4"> Email : <b>basavalingaa121@Gmail.com</b></div>
+				<div class="col-4">Address : <b>Sri Basavalinga Avadhoota Ashram Vill:DegalmadiTq:chincholli D:Gulbarga</b></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>Visitor Information List ..!</h3>
+			</div>
+			<div class="card-body">
+				<div class="row" align="right">
+					
+						<h5><span th:text="${name}"></span></h5>
+					<div class="col-8">
+						<h5><a href="/trust/employeewelcomepage">Home Page</a></h5>
+					</div>
+					<div class="col-2">
+						<h5><a href="/logout">Logout</a></h5>
+					</div>
+				</div>
+				<hr>
+
+				<!-- USer found -->
+				<div th:if="${vdone!=null}">
+					<div>
+						<table border="1">
+							<tr class="bg-info text-white">
+								<th>Visitor Id</th><th>Name</th><th>Occupation</th><th>visited Date, Time</th>
+								<th>Phone Number</th><th>Pan Number</th><th>Aadher Number</th>
+								<th>Links</th>
+							</tr>
+							<tr th:each="ob:${vdone}">
+								<td th:text="${ob.vid}"></td>
+								<td> <span th:text="${ob.vfname}"></span> <span th:text="${ob.vlname}"></span></td>
+								<td th:text="${ob.voccupation}"></td>
+								<td th:text="${ob.vvistedDateTime}"></td>
+								<td th:text="${ob.vphonenumber}"></td>
+								<td th:text="${ob.vpannumber}"></td>
+								<td th:text="${ob.vaadher}"></td>
+								<td><a th:href="@{/trust/viewvisitor(vid=${ob.vid})}">VIEW</a>
+									| <a th:href="@{/trust/editvisitor(vid=${ob.vid})}">EDIT</a> |
+									<a th:href="@{/trust/deletvisitor(vid=${ob.vid})}">DELETE</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<!-- all visitor details information list  -->
+				<div th:if="${vdlist!=null}">
+					<table class="table table-hover">
+						<tr class="bg-info text-white">
+							<th>Visitor Id
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>First Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Last Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Links</th>
+						</tr>
+						<tr th:each="ob:${vdlist}">
+							<td th:text="${ob.vid}"></td>
+							<td th:text="${ob.vfname}"></td>
+							<td th:text="${ob.vlname}"></td>
+							<td>  <a th:href="@{/trust/viewvisitor(vid=${ob.vid})}">VIEW</a>
+								| <a th:href="@{/trust/editvisitor(vid=${ob.vid})}">EDIT</a> 
+								| <a th:href="@{/trust/deletvisitor(vid=${ob.vid})}">DELETE</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			<!-- all visitor list end  -->
+				
+			<!-- Edit visitor -->
+				<div th:if="${edit!=null}">
+					<form th:action="@{/trust/editvisitorOpe}" method="POST">
+					
+					<div class="row">
+							
+							<div class="col-2">Image</div>
+							<div class="col-4">
+								<!-- <input type="file" name="vimage" class="form-control" /> -->
+								<!-- <img src="../../../../images/trust.jpg" class="form-control"/> -->
+								<img src="../../../../imagedata/10.jpg"  class="form-control" />
+							</div>
+							<div>
+							<input type="file" th:field="${edit.vimage}" class="form-control" /> </div>
+						</div>
+						<div class="row">
+							<div class="col-2">Visitor ID:</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vid}"
+									class="form-control" required="required"/>
+							</div>
+							<div class="col-2">PanNumber</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vphonenumber}" class="form-control"
+									required="required" />
+							</div>
+					
+						</div>
+					
+						<div class="row">
+							<div class="col-2">First Name:</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vfname}"
+									class="form-control" required="required" />
+							</div>
+							<div class="col-2">Locality:</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vlocality}"
+									class="form-control" required="required" />
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-2">Middle Name:</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vmname}"
+									class="form-control" />
+							</div>
+
+							<div class="col-2">Dist/City</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vdistcity}"
+									class="form-control" required="required" />
+							</div>
+
+
+						</div>
+
+						<div class="row">
+							<div class="col-2">Last Name:</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vlname}"
+									class="form-control" required="required" />
+							</div>
+
+							<div class="col-2">State</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vstate}"
+									class="form-control" required="required" />
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-2">Initial</div>
+							<div class="col-4">
+								<select th:field="${edit.vinital}" class="form-control"
+									required="required">
+									<option value="">-SELECT-</option>
+									<option value="Mr.">Mr</option>
+									<option value="Mrs.">Mrs</option>
+								</select>
+							</div>
+							<div class="col-2">Purpose To Visit</div>
+							<div class="col-4">
+								<textarea th:field="${edit.vvisitpurpose}" class="form-control"></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-2">Gender</div>
+							<div class="col-4">
+								<input type="radio" name="vgender" value="MALE" /> MALE <input
+									type="radio" name="vgender" value="FEMALE" /> FEMALE
+								<input type="text" th:field="${edit.vgender}">
+								<!-- <span th:text="${edit.vgender}"></span>	 -->
+							</div>
+							<div class="col-2">Visit Time</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vtime}" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+
+
+							<div class="col-2">Phone Number</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vphonenumber}" class="form-control"
+									required="required" />
+							</div>
+
+							<div class="col-2">Remark</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vremark}" class="form-control" />
+							</div>
+
+
+						</div>
+
+						
+
+
+
+						<div class="row">
+							<div class="col-2">Aadhar Number</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vaadher}" class="form-control"
+									required="required" />
+							</div>
+							<div class="col-2">Pin code</div>
+							<div class="col-4">
+								<input type="text" th:field="${edit.vpincode}" class="form-control"
+									required="required" />
+							</div>
+						</div>
+
+						<input type="submit" value="Update Visitor Profile"
+							class="btn btn-success" />
+					</form>
+				</div>
+
+
+				<!-- view Data -->
+				<div th:if="${view!=null}">
+
+					<div class="row">
+						<div class="col-2">Image:</div>
+						<div class="col-4">
+								<!-- <input type="file" name="vimage" class="form-control" /> -->
+								<!-- <img src="../../../../images/trust.jpg" class="form-control"/> -->
+								<img src="../../../../imagedata/9.jpg" width="50" height="300" class="form-control" />
+							</div>
+						<div class="col-2">Visitor ID:</div>
+						<div class="col-4">
+								<span th:text="${view.vid}"></span>
+							</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">First Name:</div>
+						<div class="col-4">
+							<span th:text="${view.vfname}"></span>
+						</div>
+						<div class="col-2">Locality:</div>
+						<div class="col-4">
+							<span th:text="${view.vlocality}"></span>
+						</div>
+
+
+					</div>
+
+
+					<div class="row">
+
+						<div class="col-2">Middle Name:</div>
+						<div class="col-4">
+							<span th:text="${view.vmname}"></span>
+						</div>
+
+						<div class="col-2">Dist/City</div>
+						<div class="col-4">
+							<span th:text="${view.vdistcity}"></span>
+						</div>
+
+
+					</div>
+
+					<div class="row">
+						<div class="col-2">Last Name:</div>
+						<div class="col-4">
+							<span th:text="${view.vlname}"></span>
+						</div>
+
+						<div class="col-2">State</div>
+						<div class="col-4">
+							<span th:text="${view.vstate}"></span>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-2">Initial</div>
+						<div class="col-4">
+							<span th:text="${view.vinital}"></span>
+						</div>
+						<div class="col-2">Purpose To Visit</div>
+						<div class="col-4">
+							<span th:text="${view.vvisitpurpose}"></span>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">Gender</div>
+						<div class="col-4">
+							<span th:text="${view.vgender}"></span>
+						</div>
+						<div class="col-2">Visit Time</div>
+						<div class="col-4">
+							<span th:text="${view.vtime}"></span>
+						</div>
+					</div>
+					<div class="row">
+
+
+						<div class="col-2">Phone Number</div>
+						<div class="col-4">
+							<span th:text="${view.vphonenumber}"></span>
+						</div>
+
+						<div class="col-2">Remark</div>
+						<div class="col-4">
+							<span th:text="${view.vremark}"></span>
+						</div>
+
+
+					</div>
+
+					<div class="row">
+						<div class="col-2">PanNumber</div>
+						<div class="col-4">
+							<span th:text="${view.vphonenumber}"></span>
+						</div>
+						<div class="col-2">Image</div>
+						<div class="col-4">
+							<span th:text="${view.vimage}"></span>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-2">Aadhar Number</div>
+						<div class="col-4">
+							<span th:text="${view.vaadher}"></span>
+						</div>
+						<div class="col-2">Pin code</div>
+						<div class="col-4">
+							<span th:text="${view.vpincode}"></span>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+
+				<!-- Display edit page after updating  -->
+				<div th:if="${editmsg!=null}">
+					
+					
+				<div th:if="${editlist!=null}">
+					<table class="table table-hover">
+						<tr class="bg-info text-white">
+							<th>Visitor Id
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>First Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Last Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Links</th>
+						</tr>
+						<tr th:each="ob:${editlist}">
+							<td th:text="${ob.vid}"></td>
+							<td th:text="${ob.vfname}"></td>
+							<td th:text="${ob.vlname}"></td>
+							<td><a th:href="@{/trust/viewvisitor(vid=${ob.vid})}">VIEW</a>
+								| <a th:href="@{/trust/editvisitor(vid=${ob.vid})}">EDIT</a> | <a
+								th:href="@{/trust/deletvisitor(vid=${ob.vid})}">DELETE</a></td>
+						</tr>
+					</table>
+				</div>
+					<div>
+						<span th:text="${editmsg}"></span>
+					</div>
+					
+					
+				</div>
+
+
+				<!-- Display remove message after removing  -->
+				<div th:if="${removemsg!=null}">
+					
+					
+				<div th:if="${removelist!=null}">
+					<table class="table table-hover">
+						<tr class="bg-info text-white">
+							<th>Visitor Id
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>First Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Last Name
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</th>
+							<th>Links</th>
+						</tr>
+						<tr th:each="ob:${removelist}">
+							<td th:text="${ob.vid}"></td>
+							<td th:text="${ob.vfname}"></td>
+							<td th:text="${ob.vlname}"></td>
+							<td><a th:href="@{/trust/viewvisitor(vid=${ob.vid})}">VIEW</a>
+								| <a th:href="@{/trust/editvisitor(vid=${ob.vid})}">EDIT</a> | <a
+								th:href="@{/trust/deletvisitor(vid=${ob.vid})}">DELETE</a></td>
+						</tr>
+					</table>
+				</div>
+					<div>
+						<span th:text="${removemsg}"></span>
+					</div>
+					
+					
+				</div>
+				
+
+
+
+
+			</div>
+
+
+			<div class="card bg-secondary text-white">	
+			<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

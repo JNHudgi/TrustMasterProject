@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- THis file not is use , PLease consider AllYogaInformationList.jsp  -->
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Welcome to Trust</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url : 'listofyogapeopleinfo',
+			success : function(response) {
+		        var trHTML = '';
+		        
+		        trHTML +='<tr><th width="125px">YOGA ID CARD</th><th width="170px">FULL NAME</th><th width="150px">IN DATE</th><th width="150px">'+
+		        'OUT DATE</th><th width="150px">AADHAR NUMBER</th><th width="150px">MOBILE NUMBER</th><th width="100px">LINKS</th></tr>'
+			
+		         $.each(response, function (i, item) {
+		        	//trHTML +='<tr><td><img src="data:image/png;base64,'+item.yimagedata+'" alt="No Profile" width="100" height="100" ></td><td><b>'+item.yidcard+
+		        	trHTML +='<tr><td><b>'+item.yidcard+ 		 '</b></td><td><b>'+ item.yfullname + 
+		            		 '</b></td><td><b>'+ item.yindate + 
+		            		 '</b></td><td><b>'+ item.youtdate + 
+		            		 '</b></td><td><b>'+ item.yaadharnumber + 
+		            		 '</b></td><td><b>'+ item.ymobilenumber + 
+		            		//'</b></td><td> <button class="btn btn-danger" onclick="yogaProfileVist('+item.yid+')">View Profile</button></td></tr>'
+		            		 '</b></td><td><b><a href="/trust/yogaparticipentprofilelink?yid='+item.yid+'">View Profile</b></td></tr>'
+		         });
+		        $('#records_table').append(trHTML);
+		    }
+		});
+
+	});
+	
+</script>
+<body>
+<div class="container">
+<div class="card">
+	<div class="card-header bg-primary text-white text-center">
+		<h3>Yoga Participation List ..!</h3>
+	</div>
+	<div class="card-body">
+
+		<div class="row">
+			<div class="col-10"></div>
+			<div class="col-2">
+				<h5>
+					<a href="/trust/yoga">Home Page</a>
+				</h5>
+			</div>
+			
+		</div>
+				<table id="records_table" border='1'>
+				</table>
+			</div>
+<br>
+<hr>
+	<div class="card bg-secondary text-white">
+		<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+	</div>
+</div>
+</div>
+	
+</body>
+</html>

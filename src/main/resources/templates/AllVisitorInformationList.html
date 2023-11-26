@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>All Visitor Information ..!</h3>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+			<div class="col-7">
+				<h5>
+					<span th:text="${name}"></span>
+				</h5>
+			</div>
+			
+			<div class="col-2">
+				<h5>
+					<a href="/trust/employeewelcomepage">Home Page</a>
+				</h5>
+			</div>
+			<div class="col-2">
+				<h5>
+					<a href="/logout">Logout</a>
+				</h5>
+			</div>
+		</div>
+				<hr>
+
+
+				<!-- all visitor details information list  -->
+				<div th:if="${vdlist!=null}">
+					<table border="1">
+						<tr class="bg-info text-white">
+							<th>Visitor Id</th><th>Name</th><th>Occupation</th><th>visited Date, Time</th>
+								<th>Phone Number</th><th>Pan Number</th><th>Aadher Number</th>
+								<th>Links</th>
+						</tr>
+						<tr th:each="ob:${vdlist}">
+							<td th:text="${ob.vid}"></td>
+								<td> <span th:text="${ob.vfname}"></span> <span th:text="${ob.vlname}"></span></td>
+								<td th:text="${ob.voccupation}"></td>
+								<td th:text="${ob.vvistedDateTime}"></td>
+								<td th:text="${ob.vphonenumber}"></td>
+								<td th:text="${ob.vpannumber}"></td>
+								<td th:text="${ob.vaadher}"></td>
+							<td><a th:href="@{/trust/viewvisitor(vid=${ob.vid})}">VIEW</a>
+								| <a th:href="@{/trust/editvisitor(vid=${ob.vid})}">EDIT</a> | <a
+								th:href="@{/trust/deletvisitor(vid=${ob.vid})}">DELETE</a></td>
+						</tr>
+					</table>
+				</div>
+				<!-- all visitor list end  -->
+			</div>
+			<div>
+				<span th:text="${removemsg}"></span>
+			</div>
+
+
+		</div>
+	
+
+
+	<div class="card bg-secondary text-white">
+		<div class="row">
+			<div class="col-4">
+				Contact : <b>+91-70 3235 8432</b>
+			</div>
+			<div class="col-4">
+				Email : <b>basavalingaa121@Gmail.com</b>
+			</div>
+			<div class="col-4">
+				Address : <b>Sri Basavalinga Avadhoota Ashram Vill:Degalmadi
+					Tq:chincholli D:Gulbarga</b>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	
+</body>
+</html>

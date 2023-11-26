@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>SRI BASAVALINGA AVADHOOTA ASHRAM</title>
+
+ 	
+
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<table>
+		<tr height="950">
+			<td>
+				<div class="card bg-secondary text-white" align="center">
+					
+					<!-- Header -->
+					<div>
+						<table>
+							<tr>
+								<td width="20px"></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo3.png" height="160" width="170"></td>
+								<td align="center"><H3> <b><font size="7" color="pink">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM, MALLAYYAGIRI</font></b></h3></td>
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/logo1.png" height="160" width="180"></td>
+								<td width="20px"></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+					
+					<!--Body  -->
+					<div>
+						<table>
+							<tr>
+								<td width="20" /><td> 
+									<!-- <div th:if="${admin!=null}">
+										<b><font size="4" color="black"><span th:text="${admin.aname}"></span></font></b>
+									</div> -->
+									<div th:if="${admin!=null}">
+										<img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(admin.aimage)}" width="100px" height="100px"/>
+									</div>
+								</td>
+								<td width="20" /><td> <a href="/trust/visitor"> <img alt="No Internet" src="../static/assets/images/appajimages/visitore.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/yoga"> <img alt="No Internet" src="../static/assets/images/appajimages/yoga.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/volunteer"> <img alt="No Internet" src="../static/assets/images/appajimages/volunteer.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/gurumalainfo"> <img alt="No Internet" src="../static/assets/images/appajimages/gurumala.png" width="110px" height="110px"></a></td>
+								
+								<td width="20" /><td> <a href="/trust/linga"> <img alt="No Internet" src="../static/assets/images/appajimages/linga.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/nightstay"> <img alt="No Internet" src="../static/assets/images/appajimages/nightstay.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/event"> <img alt="No Internet" src="../static/assets/images/appajimages/event.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/donation"> <img alt="No Internet" src="../static/assets/images/appajimages/donation.png" width="110px" height="110px"></a></td>
+								
+								<td width="20" /><td> <a href="/trust/dynamicsearch"> <img alt="No Internet" src="../static/assets/images/appajimages/search.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/pdf"> <img alt="No Internet" src="../static/assets/images/appajimages/pdf.jpg" width="100px" height="100px"></a></td>
+								<td width="20" /><td> <a href="/trust/adminfunction"> <img alt="No Internet" src="../static/assets/images/appajimages/admin.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/trust/completedbBackup"> <img alt="No Internet" src="../static/assets/images/appajimages/db.png" width="110px" height="110px"></a></td>
+								<td width="20" /><td> <a href="/logout"> <img alt="No Internet" src="../static/assets/images/appajimages/logout.png" width="100px" height="100px"></a></td>
+								
+							</tr>
+						</table>
+	<br>
+						<table>
+							<tr>
+								<td width="30" />
+								<td><img alt="No Internet" src="../static/assets/images/appajimages/eventimg.jpg" width="1850px" height="600px"></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+					
+					<!-- footer -->
+					<div>
+						<table>
+							<tr align="center">
+								<td><font size="5" color="Yellow">Cell : <b><u> +916305290187 </b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Email Id : <u><b>mallayyagiri121@gmail.com</b></u></font></td>
+								<td width="50px"></td>
+								<td><font size="5" color="Yellow">Address : <u><b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></u></font></td>
+							</tr>
+						</table>
+					</div>
+					<!-- End -->
+
+				</div>
+			</td>
+		</tr>
+	</table>
+<!-- <div>
+		<div class="card bg-secondary text-white">	
+			<div>
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/employeewelcomepage"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+			</div>
+			<br>
+			<div class="card-body">
+			<table>
+				<tr>
+					<td width="120px"> 
+						<div th:if="${admin!=null}">
+							<b><font size="4" color="black"><span th:text="${admin.aname}"></span></font></b>
+						</div>
+						<div th:if="${admin!=null}">
+							<img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(admin.aimage)}" width="120px"/>
+						</div>
+					</td>
+					<td width="900px">
+						<table>
+							<tr align="center">
+								<td> <a href="/trust/visitor"><b><font size="6" color="green">Visitor,</font></b></a></td>
+								<td> <a href="/trust/yoga"><b><font size="6" color="green">Yoga,</font></b></a></td>
+								<td> <a href="/trust/dynamicsearch"><b><font size="6" color="green">Search,</font></b></a></td>
+								<td> <a href="/logout"><b><font size="6" color="green">Sign-Out,</font></b></a></td>
+							</tr>
+							<tr align="center">
+								<td width="200px"> <a href="/trust/dbbackup"></a>db BackUp</td>
+								<td> <a href="/trust/donation"><b><font size="6" color="green">Donation,</font></b></a></td>
+								<td> <a href="/trust/completedbBackup"><b><font size="6" color="green">BackUp,</font></b></a></td>
+								<td> <a href="/trust/volunteer"><b><font size="6" color="green">Volunteer,</font></b></a></td>
+								<td> <a href="/trust/gurumalainfo"><b><font size="6" color="green">Guru_Mala,</font></b></a></td>
+							</tr>
+							<tr align="center">
+								<td> <a href="/trust/linga"><b><font size="6" color="green">Lingabisheka,</font></b></a></td>
+								<td> <a href="/trust/nightstay"><b><font size="6" color="green">Night_Stay,</font></b></a></td>
+								<td> <a href="/trust/adminfunction"><b><font size="6" color="green">Administration,</font></b></a></td>
+								<td> <a href="/trust/event"><b><font size="6" color="green">Event_Program,</font></b></a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<div th:if="${status!=null}">
+							<b><font size="4" color="blue"><span th:text="${status}"></span></font></b></div>
+			<hr><br>
+				<table>
+					<tr>
+						<td><img alt="No Internet" src="../static/assets/images/appajimages/appaji10.jpg" width="450px" height="560px"></td>
+						<td width="20"/>
+						<td><img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" width="450px" height="560px"></td>
+					</tr>
+				</table>
+				<br>
+			</div>
+			
+			<div class="card bg-secondary text-white">	
+				<table>
+					<tr height="100" align="center">
+						<td width="220"><b><font size="5" color="white">+91-63 0529 0187</font></b></td>
+						<td width="200"><b><font size="5" color="white">mallayyagiri121@gmail.com</font></b></td>
+						<td><b><font size="5" color="white">C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</font></b></td>
+					</tr>
+				</table>
+			</div>
+				
+		</div>
+			
+	</div> -->
+</body>
+</html>

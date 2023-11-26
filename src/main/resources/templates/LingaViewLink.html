@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Lingabisheka Details View Page</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url : 'lingaviewlinkinfo',
+			success : function(resTxt) {
+				view = resTxt
+				var familyimage = 'data:image/jpeg;base64,' + view.lpersonimagedata;
+				$("#familyimgdata").attr('src', familyimage)
+				var aadharimage = 'data:image/jpeg;base64,' + view.laadharimagedata;
+				$("#aadharimgdata").attr('src', aadharimage)
+				
+				$("#lidcard").text(view.lidcard);
+				$("#ldatetime").text(view.ldatetime);
+				$("#lfullname").text(view.lfullname);
+				$("#lphonenumber").text(view.lphonenumber);
+				$("#laadharnumber").text(view.laadharnumber);
+				$("#laddress").text(view.laddress);
+			}
+		});
+
+	});
+</script>
+
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+			
+			<table style="color: green;">
+					<tr>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="150" width="130"></td>
+						<td width="800px" align="center"><H3><b><a href="/trust/linga">SRI BASAVALINGA AVADHOOTA ASHRAM, VLG:DEGALMADI, T:CHINCHOLLI, D:GULBARGA</a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="150" width="130"></td>
+					</tr>
+				</table>
+			
+				<table style="color: blue;">
+					<tr>
+						<td width="140px"></td>
+						<td width="792px" align="center"><H4><b>APPLICATION FOR NIGHT STAY</b></h4></td>
+					</tr>
+				</table>
+			
+				<table border="1">
+				 	<tr>
+				 		<td width="600px">
+				 		<table>		
+								<tr><td width="300px">LINGABHISHEKA ID :		</td>	<td width="500px">	<span id="lidcard" class="form-control"></span></td></tr> 
+								<tr><td>LINGABHISHEKA DATE, TIME:				</td>	<td>				<span id="ldatetime" class="form-control"  ></span></td></tr>
+								<tr><td>PERSOM FULL NAMES:						</td>	<td>				<span id="lfullname" class="form-control" ></span></td></tr>
+								<tr><td>PERSON MOBILES:							</td>	<td>				<span id="lphonenumber" class="form-control"  ></span></td></tr>
+								<tr><td>PERSON AADHAR:							</td>	<td>				<span id="laadharnumber" class="form-control"></span></td></tr>
+								<tr><td>PERSON ADDRESS:							</td>	<td>				<span id="laddress" class="form-control" ></span></td></tr>
+						</table>
+				 		
+				 		</td>
+				 		<td width="400px" align="center">
+				 			<table>		
+								<tr align="center"> 
+									<td> <img id="familyimgdata" th:src="familyimgdata"  alt="No Profile Picture" height="210" width="400"></td>
+								</tr>
+								
+								<tr align="center"> 
+								 	<td><hr> <img id="aadharimgdata" th:src="aadharimgdata"  alt="No Profile Picture" height="210" width="400"></td>
+								</tr>
+								
+							</table>
+				 		</td>
+				 	</tr>
+				 </table>
+
+	</div>
+
+	<div class="card bg-secondary text-white">
+		<div class="row">
+				<div class="col-4">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-4">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+	</div>
+</div>
+</div>
+	
+</body>
+</html>

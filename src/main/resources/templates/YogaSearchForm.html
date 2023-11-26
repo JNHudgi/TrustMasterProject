@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>YOGA INQUIRY FORM ..!</h3>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-8">
+						<h5>
+							<span th:text="${name}"></span>
+						</h5>
+					</div>
+					<div class="col-2">
+						<h5>
+							<a href="/trust/yoga">Home Page</a>
+						</h5>
+					</div>
+					<div class="col-2">
+						<h5>
+							<a href="/logout">Logout</a>
+						</h5>
+					</div>
+
+				</div>
+				<hr>
+			
+				
+			
+			
+				<!-- showing visitor serach form -->
+		<form th:action="@{/trust/searchyogaids}" method="POST">	
+					<table>
+					<tr>
+						<td align="left" width="500px" height="500px">
+							<h4>Enter Yoga Details:</h4> <input type="text" name="yogaoption" class="form-control" required="required" />
+						 	<br><input type="submit" value="Seach Yoga Profile" class="btn btn-success" /> 
+						 	Note: Search with (<b>Yoga Id,First Name, Phone Number, Aadhar Number</b>)
+						 	</td>
+						<td align="right" width="500px" height="500px"><img alt="No Internet" src="../static/assets/images/appajimages/appaji2.jpg" width="400px" height="500px"></td>
+						
+					</tr>
+					</table>
+		</form>		
+					<div align="center">
+						<br><b> <span th:text="${usernotfound}" style='color: red'></span> <span th:text="${update}" style='color: green'></span> </b>
+					</div>	
+				
+
+			<!-- 	<form th:action="@{/trust/onevisitorsearch}" method="POST">
+				<br>
+					<div class="row">
+						<div class="col-3"><h5>Enter Visitor Details :</h5></div>
+						<div class="col-4">
+							<input type="text" name="visitoroption" class="form-control"
+								required="required" placeholder="Ex:Name,Phone,Aadher,Pan" />
+						</div>
+					</div>	
+					
+					<div class="row">	
+						<div class="col-2">
+							<input type="submit" value="Seach Visitor"
+								class="btn btn-success" />
+						</div>
+						</div>
+						<br>
+					<div class="row" >
+						<div class="col-3">
+							<p>This is dynamic Search From, You can enter Visitor Details Like: <b>First Name, Phone Number ,Aadher Number,Pan Number</b></p>
+						</div>	
+						
+					</div>
+				</form>
+ -->
+			</div>
+
+
+		</div>
+		<div>
+			<span th:text="${removemsg}"></span>
+		</div>
+
+
+		<div class="card bg-secondary text-white">
+		<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

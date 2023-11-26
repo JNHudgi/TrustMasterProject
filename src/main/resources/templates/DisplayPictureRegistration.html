@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<title>Insert title here</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div class="container">
+		<div class="card">
+
+
+			<div class="card-body">
+			
+			<div class="card-header bg-primary text-white text-center">
+				<h3>
+					<b>WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</b>
+				</h3>
+			</div>
+			
+			<div class="card-body">
+				<div class="row" align="right" >
+					<div class="col-10"><h5> <a href="/trust/index">Home</a> </h5> </div>
+				</div>
+				
+			
+			</div>
+				
+				<!-- Form submission start -->
+				<form th:action="@{/trust/pictureregistrationdetails}" method="POST" enctype="multipart/form-data">
+				<br>
+				<table>
+					<tr><td  width="200px">Picture Number:		</td>	<td width="800px"><input type="text" name="pnumber" class="form-control" /></td></tr>
+					<tr><td  width="200px">Picture Name:		</td>	<td><input type="text" name="pname" class="form-control"  /></td></tr>
+					<tr><td  width="200px">Picture Description:	</td>	<td><input type="text" name="pdescription" class="form-control"  /></td></tr>
+					<tr><td  width="500px"> PICTURE:	  		</td>	<td><input name="imageFile" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"></td></tr>
+				</table>
+				<br>
+										
+					<div class="row">
+						<div class="cal-3"><input type="submit" value="SUBMIT YOGA FORM" class="btn btn-success" /></div>
+						<div class="col-6"><b><span th:text="${msg}" style='color: green'></span></b></div>
+						<div><img id="output" src="" height="200" width="180"></div>
+					</div>
+
+								
+				</form>
+			</div>
+
+			<div class="card bg-secondary text-white">
+
+			<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+			</div>
+
+		</div>
+	</div>
+
+	
+</body>
+</html>

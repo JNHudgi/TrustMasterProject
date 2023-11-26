@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+<title>Employee Edit page</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+
+<body>
+	<div>
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>Employee Edit Page</h3>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-4">
+						<h5>
+							<span th:text="${name}"></span>
+						</h5>
+					</div>
+
+					<div class="col-4">
+						
+					</div>
+
+					<div class="col-2">
+						<h5>
+							<a href="/trust/adminempinfo">BACK TO HOME</a>
+						</h5>
+					</div>
+					<div class="col-2">
+						<h5>
+							<a href="/logout">Logout</a>
+						</h5>
+					</div>
+
+				</div>
+
+				<br>
+			<div th:if="${empinfo!=null}">
+				<form th:action="@{/trust/employeeupdateoperation}" method="POST">
+					<table>
+
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td>NAME:</td>
+										<td>
+											<input type="text" th:field="${empinfo.aname}" class="form-control"
+												required="required" />
+											</td>
+									</tr>
+									<tr>
+										<td>NEW PASSWORD:</td>
+										<td><input type="password" th:field="${empinfo.apassword}"
+											class="form-control" required="required" /></td>
+									</tr>
+									<tr>
+									
+								
+								<!-- <input type="radio" th:field="${edit.vgender}" value="MALE" />MALE 
+									 <input type="radio" th:field="${edit.vgender}" value="FEMALE" /> FEMALE
+								 -->	
+									
+										<td>GENDER:</td>
+										<td><input type="radio"  th:field="${empinfo.agender}" value="MALE" />MALE  
+											<input type="radio"  th:field="${empinfo.agender}" value="FEMALE" /> FEMALE
+										</td>
+									</tr>
+									<tr>
+										<td>PHONE NUMBER:</td>
+										<td><input type="text" th:field="${empinfo.aphone}" class="form-control"
+											required="required" /></td>
+									</tr>
+
+									<tr>
+										<td>ROLE:</td>
+									<td><select th:field="${empinfo.arole}" class="form-control">
+												<option value="">-SELECT-</option>
+												<option value="ADMIN">ADMIN</option>
+												<option value="EMPLOYEE">EMPLOYEE</option>
+										</select></td>
+
+		</tr>
+
+									<tr>
+										<td>Email:</td>
+										<td><input type="text" id="aemail" th:field="${empinfo.aemail}"
+											class="form-control" /> <span id="aemailError"
+											style='color: red'></span></td>
+									</tr>
+									<tr>
+										<td>ADDRESS:</td>
+										<td><textarea th:field="${empinfo.aaddress}"class="form-control"
+												required="required"></textarea></td>
+									</tr>
+									<tr>
+										<td><input type="submit" value="Update Employee Profile"
+											class="btn btn-success" /></td>
+										<td></td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+								<!-- <img alt="No Internet" th:src="@{/Trust_20210528/Asharam_Image_Info/Appaji_Image/Appaji_6.jpg}" height="400" width="380"> -->
+								<img alt="No Internet"
+								src="../static/assets/images/appajimages/appaji6.jpg"
+								height="420" width="380">
+							</td>
+						</tr>
+					</table>
+					<br>
+					<input type="hidden" th:field="${empinfo.aid}" />
+					<div align="center">
+						<b><span th:text="${msg}" style='color: green'></span></b>
+					</div>
+					</form>
+</div>				
+					<!-- 	<div class="row">
+						<div class="col-2">NAME</div>
+						<div class="col-4">
+							
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">PASSWORD</div>
+						<div class="col-4">
+							<input type="password" name="apassword" class="form-control"
+								required="required" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">INITIAL</div>
+						<div class="col-4">
+							<select name="ainitial" class="form-control">
+								<option value="">-SELECT-</option>
+								<option value="Mr.">Mr</option>
+								<option value="Mrs.">Mrs</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">GENDER</div>
+						<div class="col-4">
+							<input type="radio" name="agender" value="MALE"
+								required="required" /> MALE<br> <input type="radio"
+								name="agender" value="FEMALE" required="required" /> FEMALE
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-2">ROLE</div>
+						<div class="col-4">
+							<input type="checkbox" name="arole" value="ADMIN" /> ADMIN <br>
+							<input type="checkbox" name="arole" value="EMPLOYEE" /> EMPLOYEE
+							<br> <input type="checkbox" name="arole" value="OTHERS" />
+							OTHERS
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">EMAIL</div>
+						<div class="col-4">
+							<input type="text" name="aemail" id="aemail" class="form-control" />
+							<span id="aemailError" style='color: red'></span>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-2">PHONE NUMBER</div>
+						<div class="col-4">
+							<input type="text" name="aphone" class="form-control" required="required"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">ADDRESS</div>
+						<div class="col-4">
+							<textarea name="aaddress" class="form-control" required="required"></textarea>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-2"><input type="submit" value="Employee Register" class="btn btn-success" /></div>
+						<div th:if="${msg!=null}">
+							<b><span th:text="${msg}"></span></b>
+							</div>
+					
+					</div>	 -->
+
+				<div class="card bg-secondary text-white">
+			<div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#aemail").change(function() {
+			$.ajax({
+				url : 'checkUserName',
+				data : {
+					'aemail' : $("#aemail").val()
+				},
+				success : function(resTxt) {
+					if(resTxt!=''){
+						$("#aemailError").text(resTxt);
+						$("#aemail").val('')
+					} else {
+						$("#aemailError").text('');
+					}
+				}
+			});
+		});
+	});
+</script>
+
+</body>
+</html>

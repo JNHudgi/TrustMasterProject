@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- <meta name="viewport" content="width=device-width, minimum-scale=0.1"> -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<title>Welcome to Trust</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url : 'yogaparticipentprofilelinkInfo',
+		success : function(resTxt) {
+			
+			var fileData = 'data:image/png;base64,' + resTxt.yimagedata;
+			$("#imgdata").attr('src', fileData)
+			
+			/* var fileDataappaji = 'data:image/jpeg;base64,' + resTxt.yimagedataappaji;
+			$("#imgdataappaji").attr('src', fileDataappaji)
+			
+			var fileDatalogo = 'data:image/jpeg;base64,' + resTxt.yimagedatalogo;
+			$("#imgdatalogo").attr('src', fileDatalogo)
+			 */
+			var trHTML1 = '';
+	       	trHTML1 +='<tr><td width="500px" style="font-size:18px;">IN DATE:<input type="datetime-local" value="'+resTxt.yindate+'" style="font-size:18px;" /></td><td width="500px" style="font-size:18px;"> OUT DATE:<input type="datetime-local" value="'+resTxt.youtdate+'" style="font-size:18px;"/> </td></tr>'
+	        $('#records_table1').append(trHTML1);
+			
+			var trHTMLid = '';
+	       	trHTMLid +='<tr><td  width="200px" style="font-size:18px;">YOGA ID CARD:		</td>	<td width="400px"><input type="text" value="'+resTxt.yidcard+'" class="form-control" style="font-size:18px;"/></td>  <td  width="100px" style="font-size:18px;">BATCH:</td><td width="300px"><input type="text" value="'+resTxt.ybatch+'" class="form-control" style="font-size:18px;" /></tr>'
+	        $('#records_tableid').append(trHTMLid);
+	       	
+	       	var trHTML2 = '';
+	       	trHTML2 +='<tr><td  width="200px" style="font-size:18px;">FULL NAME:			</td>	<td width="800px"><input type="text" value="'+resTxt.yfullname+'" class="form-control" style="font-size:18px;"/></td></tr>'
+	        $('#records_table2').append(trHTML2);
+
+	       	var trHTML3 = '';
+	       	trHTML3 +='<tr><td  width="200px" style="font-size:18px;">FATHER/HUSBAND NAME:	</td>	<td width="800px"><input type="text" value="'+resTxt.yfatherhusbandname+'" class="form-control"  style="font-size:18px;"/></td></tr>'
+	        $('#records_table3').append(trHTML3);
+
+	    	var trHTML4 = '';
+	    	trHTML4 +='<tr><td  width="200px" style="font-size:18px;">DATE OF BIRTH:		</td>	<td width="400px"><input type="text" value="'+resTxt.ydateofbirth+'" class="form-control" style="font-size:18px;" /></td> <td  width="100px" style="font-size:18px;">AGE:</td><td width="300px"><input type="text" value="'+resTxt.yage+'" class="form-control" style="font-size:18px;" /></td>'
+	    	$('#records_table4').append(trHTML4);
+		
+	    	var trHTML5 = '';
+	    	trHTML5 +='<tr><td  width="200px" style="font-size:18px;">GENDER:				</td>	<td width="800px"><input type="text" value="'+resTxt.ygender+'" class="form-control"  style="font-size:18px;"/></td></tr>'
+	    	$('#records_table5').append(trHTML5);
+	    	
+	    	var trHTML6 = '';
+	    	trHTML6 +='<tr><td  width="200px" style="font-size:18px;">MARITUAL STATUS:		</td>	<td width="800px"><input type="text" value="'+resTxt.ymaritualstatus+'" class="form-control" style="font-size:18px;" /></td></tr>'
+	    	$('#records_table6').append(trHTML6);
+	    	
+			var trHTML7 = '';
+			trHTML7 +='<tr><td  width="200px" style="font-size:18px;">BLOOD GROUP:			</td>	<td width="800px"><input type="text" value="'+resTxt.ybloodgroup+'" class="form-control"  style="font-size:18px;"/></td></tr>'
+			$('#records_table7').append(trHTML7);
+			
+			var trHTML8 = '';
+			trHTML8 +='<tr><td  width="200px" style="font-size:18px;">NATIONALITY:			</td>	<td width="800px"><input type="text" value="'+resTxt.ynationality+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table8').append(trHTML8);
+			
+			var trHTML9 = '';
+			trHTML9 +='<tr><td  width="200px" style="font-size:18px;">OCCUPATION:			</td>	<td width="800px"><input type="text" value="'+resTxt.yoccupation+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table9').append(trHTML9);
+			
+			var trHTML10 = '';
+			trHTML10 +='<tr><td  width="200px" style="font-size:18px;">PRESENT ADDRESS:		</td>	<td width="800px"><input value="'+resTxt.ypresentaddress+'" class="form-control" style="font-size:18px;" /></textarea></td></tr>'
+			$('#records_table10').append(trHTML10);
+			
+			var trHTML11 = '';
+			trHTML11 +='<tr><td  width="200px" style="font-size:18px;">PERMANENT ADDRESS:	</td>	<td width="800px"><input value="'+resTxt.ypermanentaddress+'" class="form-control" style="font-size:18px;" /></textarea></td></tr>'
+			$('#records_table11').append(trHTML11);
+			
+			var trHTML12 = '';
+			trHTML12 +='<tr><td  width="200px" style="font-size:18px;">DISEASE:				</td>	<td width="800px"><input type="text" value="'+resTxt.ydisease+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table12').append(trHTML12);
+			
+			var trHTML13 = '';
+			trHTML13 +='<tr><td  width="200px" style="font-size:18px;">AADHAR NUMBER:		</td>	<td width="800px"><input type="text" value="'+resTxt.yaadharnumber+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table13').append(trHTML13);
+	       	
+			
+			var trHTML14 = '';
+			trHTML14 +='<tr><td  width="200px" style="font-size:18px;">MOBILE NUMBER:		</td>	<td width="350px"><input type="text" value="'+resTxt.ymobilenumber+'" class="form-control" style="font-size:18px;" /></td><td  width="100px" style="font-size:18px;">EMERGENCY NO:					</td>	<td width="350px"><input type="text" value="'+resTxt.yemergencyno+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table14').append(trHTML14);
+
+			var trHTML15 = '';
+			trHTML15 +='<tr><td  width="200px" style="font-size:18px;">WEIGHT:				</td>	<td width="150px"><input type="text" value="'+resTxt.yweight+'" class="form-control" style="font-size:18px;" /></td><td  width="50px" style="font-size:18px;">BP:					</td>	<td width="150px" style="font-size:18px;"><input type="text" value="'+resTxt.ybp+'" class="form-control" style="font-size:18px;" /></td><td  width="100px" style="font-size:18px;">PULSE RATE:			</td>	<td width="150px"><input type="text" value="'+resTxt.ypulserate+'" class="form-control"  style="font-size:18px;" /></td><td  width="50px" style="font-size:18px;">SUGAR:				</td>	<td width="150px"><input type="text" value="'+resTxt.ysugar+'" class="form-control" style="font-size:18px;" /></td></tr>'
+			$('#records_table15').append(trHTML15);
+	    }
+	});
+
+});
+
+	
+
+var myApp = new function () {
+    this.printTable = function () {
+    	var tab000=document.getElementById('records_table000');
+    	var tab0 = document.getElementById('records_table0');
+    	var tab00 = document.getElementById('records_table00');
+        var tab1 = document.getElementById('records_table1');
+        var tabbr = document.getElementById('records_table_br');
+        var tabid = document.getElementById('records_tableid');
+        var tab2 = document.getElementById('records_table2');
+        var tab3 = document.getElementById('records_table3');
+        var tab4 = document.getElementById('records_table4');
+        var tab5 = document.getElementById('records_table5');
+        var tab6 = document.getElementById('records_table6');
+        var tab7 = document.getElementById('records_table7');
+        var tab8 = document.getElementById('records_table8');
+        var tab9 = document.getElementById('records_table9');
+        var tab10 = document.getElementById('records_table10');
+        var tab11 = document.getElementById('records_table11');
+        var tab12 = document.getElementById('records_table12');
+        var tab13 = document.getElementById('records_table13');
+        var tab14 = document.getElementById('records_table14');
+        var tab15 = document.getElementById('records_table15');
+        var tabbrr = document.getElementById('record_tablebrr');
+        var tab16 = document.getElementById('records_table16'); 
+        var tab17 = document.getElementById('records_table17');
+        var tab18 = document.getElementById('records_table18');
+        var tab19 = document.getElementById('records_table19');
+        var tab20 = document.getElementById('records_table20');
+        var tab21 = document.getElementById('records_table21');
+        var tab22 = document.getElementById('records_table22');
+        var tab23 = document.getElementById('records_table23');
+        var tab24 = document.getElementById('records_table24');
+        //var tab24 = document.getElementById('records_table24');
+        
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write(tab000.outerHTML,tab0.outerHTML,tab00.outerHTML,tab1.outerHTML,tabbr.outerHTML,tabid.outerHTML,tab2.outerHTML,tab3.outerHTML,tab4.outerHTML,tab5.outerHTML, tab6.outerHTML, tab7.outerHTML, tab8.outerHTML, tab9.outerHTML, tab10.outerHTML, tab11.outerHTML, tab12.outerHTML, tab13.outerHTML, tab14.outerHTML, tab15.outerHTML,tabbrr.outerHTML,tab16.outerHTML,tab17.outerHTML,tab18.outerHTML, tab19.outerHTML,tab20.outerHTML,tab21.outerHTML,tab22.outerHTML,tab23.outerHTML,tab24.outerHTML);
+        win.document.close();
+        win.print();
+    }
+}
+
+</script>
+
+<body>
+<div>
+<div class="card">
+	<div class="card-header bg-primary text-white text-center">
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/listofyogapeople"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt="No Internet" src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+	</div>
+	<div class="card-body">
+		<table style="color: blue;">
+				<tr align="center">
+					<td width="910px" align="center"> <H4><b><font size="6" color="green">MEDITATION PROFILE INFORMATION</font></b></h4> </td>
+				</tr>
+		</table>
+		<hr>
+	
+		<table border="1">
+			<tr>
+				<td>
+					<table id="records_table1"></table>
+					<br id="records_table_br">
+					<table id="records_tableid"></table>
+					<table id="records_table2"></table>
+					<table id="records_table3"></table>
+					<table id="records_table4"></table>
+					<table id="records_table5"></table>
+					<table id="records_table6"></table>
+					<table id="records_table7"></table>
+					<table id="records_table8"></table>
+					<table id="records_table9"></table>
+					<table id="records_table10"></table>
+					<table id="records_table11"></table>
+					<table id="records_table12"></table>
+					<table id="records_table13"></table>
+					<table id="records_table14"></table>
+					<table id="records_table15"></table>
+				</td>
+				<td width="20"></td>
+				<td> <img id="imgdata" src=""  width="400px" height="560px"></td> 
+			<tr>
+		</table>
+		
+		<!-- --------------------------------------------------------------------------- -->
+		
+		<!-- <!-- <hr id="records_table000">
+		<table style="color: green;" id="records_table0">
+			<tr>
+				<td> <a href="/trust/yoga"><img id="imgdataappaji" src="" height="150" width="130"></a></td>
+				<td width="800px" align="center" style="font-size:30px;"><b><a href="/trust/yoga">SRI BASAVALINGA AVADHOOTA ASHRAM, VLG:DEGALMADI, T:CHINCHOLLI, D:GULBARGA</a></b></td>
+				<td> <a href="/trust/yoga"><img id="imgdatalogo" src="" height="150" width="130"></a></td> 
+			
+			</tr>
+		</table>
+		<table style="color: blue;" id="records_table00">
+			<tr>
+				<td width="140px"></td>
+				<td width="792px" align="center" style="font-size:30px;" ><b>APPLICATION FOR PARTICIPATING YOGA SADHANA SHIBIRA</b></td>
+				<td> <img id="imgdata" src="" height="150" width="130"></td>
+			</tr>
+		</table>	
+		
+		<table id="records_table1"></table>
+		<br id="records_table_br">
+		<table id="records_tableid"></table>
+		<table id="records_table2"></table>
+		<table id="records_table3"></table>
+		<table id="records_table4"></table>
+		<table id="records_table5"></table>
+		<table id="records_table6"></table>
+		<table id="records_table7"></table>
+		<table id="records_table8"></table>
+		<table id="records_table9"></table>
+		<table id="records_table10"></table>
+		<table id="records_table11"></table>
+		<table id="records_table12"></table>
+		<table id="records_table13"></table>
+		<table id="records_table14"></table>
+		<table id="records_table15"></table>
+		<br id="record_tablebrr">
+		<hr id="records_table16">
+	 -->
+				<b id="records_table17">SELF DECLARATION :-</b>
+					<p id="records_table18" style="font-size:20px;">I/We Hereby Declare that I/We shall strictly allow all Ashrama rules of SRI BASAVALINGA AVADHOOTA ASHRAM and The ashrama is conducting yoga shibira are so 
+				I/We are participating in the yoga voluntary, so any risk for health concern or else any short things happen I/We responsible for the same for which ashrama will 
+				not responsible for any type of loss harm theft abnormality missing emergencies etc. I are aware that there is no emergency service available at Sri basavalinga avadhoota 
+				Ashram and we are staying here on our own risk and the SRI BASAVALINGA AVADHOOTA ASHRAMA will not be responsible for the above.</p>
+				<br id="records_table19">
+				<!-- <br id="records_table20">
+				<br id="records_table21"> -->
+				
+				<table id="records_table22">
+					<tr>
+						<td width="700px" style="font-size:18px;"> ATTENDEE SIGN:</td>
+						<td width="800px" style="font-size:18px;"> GUARDIAN SIGN:</td>
+						<td width="800px" style="font-size:18px;"> INCHARGE SIGN:</td>
+						<td> <input type="button" value="Print_Form" onclick="myApp.printTable()" /></td>
+					</tr>
+				</table>
+		</div>
+	<!-- <hr id="records_table23"> -->
+			
+	<div class="card bg-secondary text-white" >
+		<table id="records_table24">
+					<tr>
+						<td width="700px" style="font-size:18px;"> Contact : <b>+91-63 0529 0187</b></td>
+						<td width="650px" style="font-size:18px;"> 	Email : <b>mallayyagiri121@gmail.com</b></td>
+						<td width="950px" style="font-size:18px;">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></td>
+					</tr>
+				</table>
+		<!-- <div class="row">
+				<div class="col-3">Contact : <b>+91-63 0529 0187</b></div>
+				<div class="col-4">	Email : <b>mallayyagiri121@gmail.com</b></div>
+				<div class="col-5">Address : <b>C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</b></div>
+			</div> -->
+	</div>
+</div>
+</div>
+	
+</body>
+</html>

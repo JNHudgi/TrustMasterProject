@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Meditation Information List</title>
+<style>  .blink { animation: blinker 2.0s linear infinite; color: white; font-family: sans-serif; } @keyframes blinker { 50% { opacity: 0;  }  }  </style> </head>
+<body>
+	<div>
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<table>
+					<tr>
+						<td width="40px"></td>
+						<td> <img alt=" " src="../static/assets/images/appajimages/appaji8.jpg" height="160" width="160"></td>
+						<td width="950px" align="center"><H3><b><a href="/trust/yoga"><font size="6" color="white">WELCOME TO SRI BASAVALINGA AVADHOOTA ASHRAM</font></a></b></h3></td>
+						<td> <img alt=" " src="../static/assets/images/appajimages/logo.jpg" height="160" width="160"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="card-body">
+			
+			<table>
+				<tr>
+					<td> <a href="/trust/yoga"><b><font size="5" color="chocolate">Back</font></b></a></td>
+					<!-- <td> <b><font size="6" color="black"><span th:text="${name}"></span></font></b></td> -->
+					<td width="200"/>
+					<td> <b><font size="6" color="green">Meditation Information List</font></b></td>
+					<td width="120"/>
+					<td> <a href="/trust/listofyogapeople"><b><font size="5" color="chocolate">Refresh</font></b></a></td>
+				</tr>
+			</table>	
+				
+				
+				<div align="center" style='font-size : 25px; color: red;'><b> <span th:text="${removemsg}"></span></b></div>
+				<hr>
+				<table>
+					<tr align="center"><td width="200"><b><font size="4" color="chocolate">SEARCH BY BATCH:</font></b><form th:action="@{/trust/yogaSearchByBatch}" method="POST">
+						<select name="yogasearchbybatch" required="required"> <option value="">-SELECT-</option>
+														<option value="1 2022">1 2022</option>
+														<option value="2 2022">2 2022</option>
+														
+														<option value="1 2021">1 2021</option>	
+														<option value="2 2021">2 2021</option> 	
+														<option value="3 2021">3 2021</option>	
+														<option value="4 2021">4 2021</option>
+														<option value="1 2022">1 2022</option>
+													</select> 
+						<input type="submit" style='font-size : 20px; height: 40px; width: 60%' /></form></td>
+						<td width="30">
+						<td> <form th:action="@{/trust/yogaSearchByOccuption}" method="POST">
+											<b><font size="4" color="chocolate">SEARCH BY OCCUPATION:</font></b>
+													<select name="yogasearchbyoccupation" required="required"> <option value="">-SELECT-</option>
+														<option value="Agriculture">Agriculture</option> <option value="3D Works">3D Works</option> <option value="Accounts">Accounts</option> <option value="Advocate">Advocate</option> <option value="Agarbatti making">Agarbatti making</option> <option value="Agriculture shop">Agriculture shop</option> <option value="Auto Driver">Auto Driver</option> <option value="Auto mobile shop">Auto mobile shop</option> <option value="Bakery works">Bakery works</option> <option value="Banks work">Banks work</option>
+														<option value="Bed makers">Bed makers</option> <option value="Bike Mechanic">Bike Mechanic</option> <option value="Book store">Book store</option> <option value="Bus Driver">Bus Driver</option> <option value="Business works">Business works</option> <option value="Car Decors Works">Car Decors Works</option> <option value="Car Driver">Car Driver</option> <option value="Car Mechanic">Car Mechanic</option> <option value="Carpenter">Carpenter</option>
+														<option value="Cccamera works">Camera works</option> <option value="Cement sales">Cement sales</option> <option value="Centring mestri">Centring mestri</option> <option value="Chart bhandar">Chart bhandar</option> <option value="Charter accounts">Charter accounts</option> <option value="Civil engineers">Civil engineers</option> <option value="ClothShop Work">ClothShop Work</option> <option value="Company">Company</option> <option value="Computer and laptop repair">Computer and Laptop repair</option> <option value="Conductor">Conductor</option>
+														<option value="Cook">Cook</option> <option value="Dholak player">Dholak player</option> <option value="Doctor">Doctor</option> <option value="Electrical Technician">Electrical Technician</option> <option value="Farmer">Farmer</option> <option value="Fastfood center">Fastfood center</option> <option value="Financial analyst">Financial analyst</option> <option value="Flower sales">Flower sales</option> <option value="Foot wear">Foot wear</option>
+														<option value="Fruits sales">Fruits sales</option> <option value="Furniture">Furniture</option> <option value="GOvernment Employee">GOvernment Employee</option> <option value="General store">General store</option> <option value="Goldsmith">Goldsmith</option> <option value="Government Teacher">Government Teacher</option> <option value="Hair saloon">Hair saloon</option> <option value="Hardware shop">Hardware shop</option> <option value="House wife">House wife</option> <option value="Housekeeper">Housekeeper</option>
+														<option value="Juice center">Juice center</option> <option value="Kiranshop Work">Kiranshop Work</option> <option value="Labour Work">Labour Work</option> <option value="Lawyer">Lawyer</option> <option value="Leaders">Leaders</option> <option value="Lorry Driver">Lorry Driver</option> <option value="Media Press">Media Press</option> <option value="Medical store">Medical store</option> <option value="Mobile sales and repair">Mobile sales and repair</option>
+														<option value="Music Keyboard Player">Music Keyboard Player</option> <option value="Music director">Music director</option> <option value="Nurse">Nurse</option> <option value="Optical">Optical</option> <option value="Painting works">Painting works</option> <option value="Petrol working">Petrol working</option> <option value="Photo Studio">Photo Studio</option> <option value="Photo frame shop">Photo frame shop</option> <option value="Photographay">Photographay</option> <option value="Photos frame makers">Photos frame makers</option>
+														<option value="Plumber Technician">Plumber Technician</option> <option value="Police officers">Police officers</option> <option value="Politician">Politician</option> <option value="Post man">Post man</option> <option value="Printing Press">Printing Press</option> <option value="Private Employee">Private Employee</option> <option value="Private Teacher">Private Teacher</option> <option value="Rto">Rto</option> <option value="Singer">Singer</option> <option value="Software Engineering">Software Engineering</option> <option value="Software developers">Software developers</option>
+														<option value="Sound system operating">Sound system operating</option> <option value="Student ">Student</option> <option value="Tabala player">Tabala player</option> <option value="Tailor">Tailor</option> <option value="Temple poojari">Temple poojari</option> <option value="Tiffin Center">Tiffin Center</option> <option value="Tiles works">Tiles works</option> <option value="Tractor Driver">Tractor Driver</option> <option value="Transport work">Transport work</option> <option value="Vegetable sales">Vegetable sales</option> <option value="Videographay">Videographay</option> <option value="Watch man duty">Watch man duty</option>
+														<option value="Welding Work">Welding Work</option> <option value="Wine shop working">Wine shop working</option> <option value="Writer">Writer</option> <option value="Lab technician">Lab technician</option>
+													</select> 
+										<input type="submit" style='font-size : 20px; height: 40px; width: 60%'/></form></td>
+						<td width="30">
+						<td> <form th:action="@{/trust/yogaSearchByIdcard}" method="POST"><b><font size="4" color="chocolate">SEARCH BY ID'S:</font></b> 
+							<input type="text" name="yogasearchbyidcard" required="required"/> <input type="submit" style='font-size : 20px; height: 40px; width: 60%'/></form></td>
+						<td width="30">	
+						<td> <form th:action="@{/trust/yogaSearchByName}" method="POST"><b><font size="4" color="chocolate">SEARCH BY NAME'S:</font></b> 
+							<input type="text" name="yogasearchbyname" required="required"/> <input type="submit" style='font-size : 20px; height: 40px; width: 60%'/></form></td>
+					</tr>						
+				</table>
+				<hr>
+					<!-- Start All Yoga List using pagination and sorting-->
+					<div th:if="${listEmployees!=null}">
+							<table border="1" class = "table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th width="50px"><a th:href="@{'/trust/page/' + ${currentPage} + '?sortField=yidcard&sortDir=' + ${reverseSortDir}}"><b><font size="4" color="green">YOGA ID</font></b></a></th>
+										<th width="80px"><a th:href="@{'/trust/page/' + ${currentPage} + '?sortField=ybatch&sortDir=' + ${reverseSortDir}}"><b><font size="4" color="green">BATCH NO</font></b></a></th>
+										<th width="180px"><a th:href="@{'/trust/page/' + ${currentPage} + '?sortField=yfullname&sortDir=' + ${reverseSortDir}}"><b><font size="4" color="green">FULL NAME</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/page/' + ${currentPage} + '?sortField=ymobilenumber&sortDir=' + ${reverseSortDir}}"><b><font size="4" color="green">PHONE NUMBER</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/page/' + ${currentPage} + '?sortField=yoccupation&sortDir=' + ${reverseSortDir}}"><b><font size="4" color="green">OCCUPATION</font></b></a></th>
+										<th width="100px"><b><font size="4" color="green">PHOTO</font></b></th>
+										<th width="130px"><b><font size="4" color="green">LINK</font></b></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="employee : ${listEmployees}">
+										<td th:text="${employee.yidcard}"></td>
+										<td th:text="${employee.ybatch}"></td>
+										<td th:text="${employee.yfullname}"></td>
+										<td th:text="${employee.ymobilenumber}"></td>
+										<td th:text="${employee.yoccupation}"></td>
+										<td><a th:href="@{/trust/viewyoga(yid=${employee.yid})}"><img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employee.yimagedata)}" width="100px" height="100px"/></a></td> 
+										<td><a th:href="@{/trust/edityoga(yid=${employee.yid})}"><b><font size="4" color="Green">EDIT</font></b></a> |
+											<a th:href="@{/trust/deleteyoga(yid=${employee.yid})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div th:if = "${totalPages > 1}">
+							<table>
+								<tr>
+									<td><b><font size="5" color="orange">Total Rows: [[${totalItems}]] </font></b> </td>
+									<td width="30"/>
+									<td>	<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+											<a th:if="${5 >= i}" th:href="@{'/trust/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"><b><font size="5" color="orange">[[${i}]]</font></b></a>
+											<!-- <span th:unless="${currentPage != i}"><b><font size="5" color="black">[[${i}]]</font></b></span> -->  &nbsp; &nbsp;</span>
+									</td>		
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"><b><font size="5" color="orange">Next</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Next</font></b></span>
+									</td>
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"><b><font size="5" color="orange">Last</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Last</font></b></span>
+									</td>	
+								</tr>
+							</table>
+							</div>
+					</div>
+					<!-- End All Yoga List using pagination and sorting-->
+
+					<!-- Start All Yoga List by Batch using pagination and sorting -->
+					<div th:if="${yogapbatch!=null}">
+							<table border="1" class = "table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th width="50px"><a th:href="@{'/trust/yogapagibatch/' + ${currentPage} + '?sortField=yidcard&sortDir=' + ${reverseSortDir}+ '&batch=' + ${yogasearchbybatch}}"><b><font size="4" color="green">YOGA ID</font></b></a></th>
+										<th width="80px"><a th:href="@{'/trust/yogapagibatch/' + ${currentPage} + '?sortField=ybatch&sortDir=' + ${reverseSortDir}+ '&batch=' + ${yogasearchbybatch}}"><b><font size="4" color="green">BATCH NO</font></b></a></th>
+										<th width="180px"><a th:href="@{'/trust/yogapagibatch/' + ${currentPage} + '?sortField=yfullname&sortDir=' + ${reverseSortDir}+ '&batch=' + ${yogasearchbybatch}}"><b><font size="4" color="green">FULL NAME</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapagibatch/' + ${currentPage} + '?sortField=ymobilenumber&sortDir=' + ${reverseSortDir}+ '&batch=' + ${yogasearchbybatch}}"><b><font size="4" color="green">PHONE NUMBER</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapagibatch/' + ${currentPage} + '?sortField=yoccupation&sortDir=' + ${reverseSortDir}+ '&batch=' + ${yogasearchbybatch}}"><b><font size="4" color="green">OCCUPATION</font></b></a></th>
+										<th width="100px"><b><font size="4" color="green">PHOTO</font></b></th>
+										<th width="130px"><b><font size="4" color="green">LINK</font></b></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="employee : ${yogapbatch}">
+										<td th:text="${employee.yidcard}"></td>
+										<td th:text="${employee.ybatch}"></td>
+										<td th:text="${employee.yfullname}"></td>
+										<td th:text="${employee.ymobilenumber}"></td>
+										<td th:text="${employee.yoccupation}"></td>
+										<td><a th:href="@{/trust/viewyoga(yid=${employee.yid})}"><img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employee.yimagedata)}" width="100px" height="100px"/></a></td> 
+										<td><a th:href="@{/trust/edityoga(yid=${employee.yid})}"><b><font size="4" color="Green">EDIT</font></b></a> |
+											<a th:href="@{/trust/deleteyoga(yid=${employee.yid})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div th:if = "${totalPages > 1}">
+							<table>
+								<tr>
+									<td><b><font size="5" color="orange">Total Rows: [[${totalItems}]] </font></b> </td>
+									<td width="30"/>
+									<td>	<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+											<a th:if="${10 >= i}" th:href="@{'/trust/yogapagibatch/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&batch=' + ${yogasearchbybatch}}"><b><font size="5" color="orange">[[${i}]]</font></b></a>
+											<!-- <span th:unless="${currentPage != i}"><b><font size="5" color="black">[[${i}]]</font></b></span> -->  &nbsp; &nbsp;</span>
+									</td>		
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapagibatch/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&batch=' + ${yogasearchbybatch}}"><b><font size="5" color="orange">Next</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Next</font></b></span>
+									</td>
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapagibatch/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&batch=' + ${yogasearchbybatch}}"><b><font size="5" color="orange">Last</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Last</font></b></span>
+									</td>	
+								</tr>
+							</table>
+							</div>
+					</div>
+					<!-- End All Yoga List by Batch using pagination and sorting-->
+
+					<!-- Start All Yoga List by Occupation using pagination and sorting -->
+					<div th:if="${yogapoccupation!=null}">
+							<table border="1" class = "table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th width="50px"><a th:href="@{'/trust/yogapoccupation/' + ${currentPage} + '?sortField=yidcard&sortDir=' + ${reverseSortDir}+ '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="4" color="green">YOGA ID</font></b></a></th>
+										<th width="80px"><a th:href="@{'/trust/yogapoccupation/' + ${currentPage} + '?sortField=ybatch&sortDir=' + ${reverseSortDir}+ '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="4" color="green">BATCH NO</font></b></a></th>
+										<th width="180px"><a th:href="@{'/trust/yogapoccupation/' + ${currentPage} + '?sortField=yfullname&sortDir=' + ${reverseSortDir}+ '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="4" color="green">FULL NAME</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapoccupation/' + ${currentPage} + '?sortField=ymobilenumber&sortDir=' + ${reverseSortDir}+ '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="4" color="green">PHONE NUMBER</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapoccupation/' + ${currentPage} + '?sortField=yoccupation&sortDir=' + ${reverseSortDir}+ '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="4" color="green">OCCUPATION</font></b></a></th>
+										<th width="100px"><b><font size="4" color="green">PHOTO</font></b></th>
+										<th width="130px"><b><font size="4" color="green">LINK</font></b></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="employee : ${yogapoccupation}">
+										<td th:text="${employee.yidcard}"></td>
+										<td th:text="${employee.ybatch}"></td>
+										<td th:text="${employee.yfullname}"></td>
+										<td th:text="${employee.ymobilenumber}"></td>
+										<td th:text="${employee.yoccupation}"></td>
+										<td><a th:href="@{/trust/viewyoga(yid=${employee.yid})}"><img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employee.yimagedata)}" width="100px" height="100px"/></a></td> 
+										<td><a th:href="@{/trust/edityoga(yid=${employee.yid})}"><b><font size="4" color="Green">EDIT</font></b></a> |
+											<a th:href="@{/trust/deleteyoga(yid=${employee.yid})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div th:if = "${totalPages > 1}">
+							<table>
+								<tr>
+									<td><b><font size="5" color="orange">Total Rows: [[${totalItems}]] </font></b> </td>
+									<td width="30"/>
+									<td>	<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+											<a th:if="${10 >= i}" th:href="@{'/trust/yogapoccupation/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="5" color="orange">[[${i}]]</font></b></a>
+											<!-- <span th:unless="${currentPage != i}"><b><font size="5" color="black">[[${i}]]</font></b></span> -->  &nbsp; &nbsp;</span>
+									</td>		
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapoccupation/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="5" color="orange">Next</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Next</font></b></span>
+									</td>
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapoccupation/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&occupation=' + ${yogasearchbyoccupation}}"><b><font size="5" color="orange">Last</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Last</font></b></span>
+									</td>	
+								</tr>
+							</table>
+							</div>
+					</div>
+					<!-- End All Yoga List by Occupation using pagination and sorting-->
+					
+					<!-- Start All Yoga List by name using pagination and sorting -->
+					<div th:if="${yogapname!=null}">
+							<table border="1" class = "table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th width="50px"><a th:href="@{'/trust/yogapname/' + ${currentPage} + '?sortField=yidcard&sortDir=' + ${reverseSortDir}+ '&name=' + ${yogasearchbyname}}"><b><font size="4" color="green">YOGA ID</font></b></a></th>
+										<th width="80px"><a th:href="@{'/trust/yogapname/' + ${currentPage} + '?sortField=ybatch&sortDir=' + ${reverseSortDir}+ '&name=' + ${yogasearchbyname}}"><b><font size="4" color="green">BATCH NO</font></b></a></th>
+										<th width="180px"><a th:href="@{'/trust/yogapname/' + ${currentPage} + '?sortField=yfullname&sortDir=' + ${reverseSortDir}+ '&name=' + ${yogasearchbyname}}"><b><font size="4" color="green">FULL NAME</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapname/' + ${currentPage} + '?sortField=ymobilenumber&sortDir=' + ${reverseSortDir}+ '&name=' + ${yogasearchbyname}}"><b><font size="4" color="green">PHONE NUMBER</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapname/' + ${currentPage} + '?sortField=yoccupation&sortDir=' + ${reverseSortDir}+ '&name=' + ${yogasearchbyname}}"><b><font size="4" color="green">OCCUPATION</font></b></a></th>
+										<th width="100px"><b><font size="4" color="green">PHOTO</font></b></th>
+										<th width="130px"><b><font size="4" color="green">LINK</font></b></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="employee : ${yogapname}">
+										<td th:text="${employee.yidcard}"></td>
+										<td th:text="${employee.ybatch}"></td>
+										<td th:text="${employee.yfullname}"></td>
+										<td th:text="${employee.ymobilenumber}"></td>
+										<td th:text="${employee.yoccupation}"></td>
+										<td><a th:href="@{/trust/viewyoga(yid=${employee.yid})}"><img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employee.yimagedata)}" width="100px" height="100px"/></a></td> 
+										<td><a th:href="@{/trust/edityoga(yid=${employee.yid})}"><b><font size="4" color="Green">EDIT</font></b></a> |
+											<a th:href="@{/trust/deleteyoga(yid=${employee.yid})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div th:if = "${totalPages > 1}">
+							<table>
+								<tr>
+									<td><b><font size="5" color="orange">Total Rows: [[${totalItems}]] </font></b> </td>
+									<td width="30"/>
+									<td>	<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+											<a th:if="${10 >= i}" th:href="@{'/trust/yogapname/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&name=' + ${yogasearchbyname}}"><b><font size="5" color="orange">[[${i}]]</font></b></a>
+											<!-- <span th:unless="${currentPage != i}"><b><font size="5" color="black">[[${i}]]</font></b></span> -->  &nbsp; &nbsp;</span>
+									</td>		
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapname/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&name=' + ${yogasearchbyname}}"><b><font size="5" color="orange">Next</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Next</font></b></span>
+									</td>
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapname/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&name=' + ${yogasearchbyname}}"><b><font size="5" color="orange">Last</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Last</font></b></span>
+									</td>	
+								</tr>
+							</table>
+							</div>
+					</div>
+					<!-- End All Yoga List by name using pagination and sorting-->
+					
+					<!-- Start All Yoga List by name using pagination and sorting -->
+					<div th:if="${yogapidcard!=null}">
+							<table border="1" class = "table table-striped table-responsive-md">
+								<thead>
+									<tr>
+										<th width="50px"><a th:href="@{'/trust/yogapidcard/' + ${currentPage} + '?sortField=yidcard&sortDir=' + ${reverseSortDir}+ '&idcard=' + ${yogasearchbyidcard}}"><b><font size="4" color="green">YOGA ID</font></b></a></th>
+										<th width="80px"><a th:href="@{'/trust/yogapidcard/' + ${currentPage} + '?sortField=ybatch&sortDir=' + ${reverseSortDir}+ '&idcard=' + ${yogasearchbyidcard}}"><b><font size="4" color="green">BATCH NO</font></b></a></th>
+										<th width="180px"><a th:href="@{'/trust/yogapidcard/' + ${currentPage} + '?sortField=yfullname&sortDir=' + ${reverseSortDir}+ '&idcard=' + ${yogasearchbyidcard}}"><b><font size="4" color="green">FULL NAME</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapidcard/' + ${currentPage} + '?sortField=ymobilenumber&sortDir=' + ${reverseSortDir}+ '&idcard=' + ${yogasearchbyidcard}}"><b><font size="4" color="green">PHONE NUMBER</font></b></a></th>
+										<th width="150px"><a th:href="@{'/trust/yogapidcard/' + ${currentPage} + '?sortField=yoccupation&sortDir=' + ${reverseSortDir}+ '&idcard=' + ${yogasearchbyidcard}}"><b><font size="4" color="green">OCCUPATION</font></b></a></th>
+										<th width="100px"><b><font size="4" color="green">PHOTO</font></b></th>
+										<th width="130px"><b><font size="4" color="green">LINK</font></b></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="employee : ${yogapidcard}">
+										<td th:text="${employee.yidcard}"></td>
+										<td th:text="${employee.ybatch}"></td>
+										<td th:text="${employee.yfullname}"></td>
+										<td th:text="${employee.ymobilenumber}"></td>
+										<td th:text="${employee.yoccupation}"></td>
+										<td><a th:href="@{/trust/viewyoga(yid=${employee.yid})}"><img class='img-thumbnail' th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employee.yimagedata)}" width="100px" height="100px"/></a></td> 
+										<td><a th:href="@{/trust/edityoga(yid=${employee.yid})}"><b><font size="4" color="Green">EDIT</font></b></a> |
+											<a th:href="@{/trust/deleteyoga(yid=${employee.yid})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div th:if = "${totalPages > 1}">
+							<table>
+								<tr>
+									<td><b><font size="5" color="orange">Total Rows: [[${totalItems}]] </font></b> </td>
+									<td width="30"/>
+									<td>	<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+											<a th:if="${10 >= i}" th:href="@{'/trust/yogapidcard/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&idcard=' + ${yogasearchbyidcard}}"><b><font size="5" color="orange">[[${i}]]</font></b></a>
+											<!-- <span th:unless="${currentPage != i}"><b><font size="5" color="black">[[${i}]]</font></b></span> -->  &nbsp; &nbsp;</span>
+									</td>		
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapidcard/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&idcard=' + ${yogasearchbyidcard}}"><b><font size="5" color="orange">Next</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Next</font></b></span>
+									</td>
+									<td width="50"/>
+									<td>	<a th:if="${currentPage < totalPages}" th:href="@{'/trust/yogapidcard/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} + '&idcard=' + ${yogasearchbyidcard}}"><b><font size="5" color="orange">Last</font></b></a>
+											<span th:unless="${currentPage < totalPages}"><b><font size="5" color="black">Last</font></b></span>
+									</td>	
+								</tr>
+							</table>
+							</div>
+					</div>
+					<!-- End All Yoga List by idcard using pagination and sorting-->
+					
+
+				<!-- all visitor details information list  -->
+				<!-- <div th:if="${vdlist!=null}">
+					<table border="1">
+						<tr class="bg-info text-white">
+							<th width="50px"><b><font size="4" color="white">YOGA ID</font></b></th>
+							<th width="80px"><b><font size="4" color="white">BATCH NO</font></b></th>
+							<th width="200px"><b><font size="4" color="white">FULL NAME</font></b></th>
+							<th width="200px"><b><font size="4" color="white">PHONE NUMBER</font></b></th>
+							<th width="200px"><b><font size="4" color="white">OCCUPATION</font></b></th>
+							<th width="130px"><b><font size="4" color="white">LINKS</font></b></th>
+						</tr>
+						<tr th:each="ob:${vdlist}">
+								<td th:text="${ob[1]}"></td>
+								<td th:text="${ob[2]}"></td>
+								<td th:text="${ob[3]}"></td>
+								<td th:text="${ob[4]}"></td>
+								<td th:text="${ob[5]}"></td>
+							<td><a th:href="@{/trust/yogaparticipentprofilelink(yid=${ob[0]})}"><b>VIEW</b></a>
+								| <a th:href="@{/trust/edityoga(yid=${ob[0]})}"><b><font size="4" color="Green">EDIT</font></b></a> | <a
+								th:href="@{/trust/deleteyoga(yid=${ob[0]})}"><b><font size="4" color="red">DELETE</font></b></a></td>
+						</tr>
+					</table>
+				</div> -->
+				<!-- all visitor list end  -->
+			</div>
+			
+			<div class="card bg-secondary text-white">	
+				<table>
+					<tr height="100" align="center">
+						<td width="220"><b><font size="5" color="white">+91-63 0529 0187</font></b></td>
+						<td width="200"><b><font size="5" color="white">mallayyagiri121@gmail.com</font></b></td>
+						<td><b><font size="5" color="white">C/o Sri Basavalinga Avadhoota Ashram (TRUST) Mallayyagiri vlg:Kuppanagar M:Jharasangam D:Sangareddy</font></b></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+	
+</body>
+</html>
