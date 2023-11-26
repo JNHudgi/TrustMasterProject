@@ -63,7 +63,7 @@ public class TrustAdminServiceImpl implements ITrustAdminService, UserDetailsSer
 	private BCryptPasswordEncoder encode;
 	
 	@Autowired
-	private TrustYogaDetailsRepository yogaDetailsRepo; 
+	private TrustYogaDetailsRepository yogaDetailsRepo;  
 	
 	@Autowired
 	private TrustVolunteerDetailsRepository volunteerDetailsRepo; 
