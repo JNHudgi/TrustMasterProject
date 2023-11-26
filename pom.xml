@@ -11,7 +11,7 @@
 	<groupId>com.trust.ashram</groupId>
 	<artifactId>TrustMasterProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>TrustMasterProject</name>
 	<description>Project for Spring Boot Trust</description>
 	<properties>
